@@ -1,18 +1,12 @@
 <?php 
+require dirname(__DIR__).'/lib/functions.php';
 session_start();
-$name = $_POST["login-user"]; 
+$name = $_POST["login-user"];
 $_SESSION["temp"][0]=$name;
 $pwd = $_POST["login-password"];
 $idf = $_POST["ident"];
 $jud=0;
-$con = mysql_connect("localhost","root","");
-	if (!$con)
-  	{
-  		die('Could not connect: ' . mysql_error());
-  	}
-  	else
-  	{
-  		mysql_select_db("teacher_class_system", $con);//连接到数据库
+$con = get_db("localhost","root","");
 			if($idf=="teacher")//教师类型身份验证
 	  		{
 		  		$result = mysql_query("SELECT * FROM user_teacher");
@@ -90,5 +84,4 @@ $con = mysql_connect("localhost","root","");
 				}
 	
 			 }	
-  	}
 ?>
