@@ -128,49 +128,55 @@
                   {
                       $year = $_GET["year"];
                       $semester = $_GET["semester"];
+                      // $major = $_GET["major"];
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       //$year=date("Y");
-                      $sql="SELECT relativeTable FROM task_info WHERE year='$year' AND semester = '$semester'";
-                      $result=mysql_query($sql);
-                      while($row=mysql_fetch_array($result))
+                      $sql1="SELECT major FROM department_head_majors WHERE workNumber='$workNumber'";
+                      $result1=mysql_query($sql1);
+                      while($row1=mysql_fetch_array($result1))
                       {
-                          switch ($row['relativeTable']) {
-                            case strstr($row['relativeTable'],'tc_com_exc'):
-                              $table_name_show='计算机卓越班报课表';
-                              break;
-                            case strstr($row['relativeTable'], 'tc_com_ope'):
-                              $table_name_show='计算机实验班报课表';
-                              break;
-                            case strstr($row['relativeTable'],'tc_com_nor'):
-                              $table_name_show='计算机普通班报课表';
-                              break;
-                            case strstr($row['relativeTable'],'tc_inf_sec'):
-                              $table_name_show='信息安全报课表';
-                              break;
-                            case strstr($row['relativeTable'],'tc_math_nor'):
-                              $table_name_show='数学普通班报课表';
-                              break;
-                            case strstr($row['relativeTable'],'tc_math_ope'):
-                              $table_name_show='数学实验班报课表';
-                              break;
-                            case strstr($row['relativeTable'],'tc_net_pro'):
-                              $table_name_show='网络工程报课表';
-                              break;
-                            case strstr($row['relativeTable'],'tc_soft_pro'):
-                              $table_name_show='软件工程报课表';
-                              break;                     
-                            default:
-                              # code...
-                              break;
-                          }
-                       echo'<li class="list-group-item">
-                          <span class="table_name">'.$table_name_show.'</span>'
-                           .'<span class="table_download">
-                          <a class="list-group-item-a" href="index.php?table_name='.$row['relativeTable'].'&year='.$year.'">'.'点击查看</a></sapn>';
-                          
-                      }
-                      //echo $year;
+                        $sql="SELECT relativeTable FROM task_info WHERE year='$year' AND semester = '$semester' AND relativeTable like '%$row1[major]%' ";
+                        $result=mysql_query($sql);
+                        while($row=mysql_fetch_array($result))
+                        {
+                            switch ($row['relativeTable']) {
+                              case strstr($row['relativeTable'],'tc_com_exc'):
+                                $table_name_show='计算机卓越班报课表';
+                                break;
+                              case strstr($row['relativeTable'], 'tc_com_ope'):
+                                $table_name_show='计算机实验班报课表';
+                                break;
+                              case strstr($row['relativeTable'],'tc_com_nor'):
+                                $table_name_show='计算机普通班报课表';
+                                break;
+                              case strstr($row['relativeTable'],'tc_inf_sec'):
+                                $table_name_show='信息安全报课表';
+                                break;
+                              case strstr($row['relativeTable'],'tc_math_nor'):
+                                $table_name_show='数学普通班报课表';
+                                break;
+                              case strstr($row['relativeTable'],'tc_math_ope'):
+                                $table_name_show='数学实验班报课表';
+                                break;
+                              case strstr($row['relativeTable'],'tc_net_pro'):
+                                $table_name_show='网络工程报课表';
+                                break;
+                              case strstr($row['relativeTable'],'tc_soft_pro'):
+                                $table_name_show='软件工程报课表';
+                                break;                     
+                              default:
+                                # code...
+                                break;
+                            }
+                         echo'<li class="list-group-item">
+                            <span class="table_name">'.$table_name_show.'</span>'
+                             .'<span class="table_download">
+                            <a class="list-group-item-a" href="index.php?table_name='.$row['relativeTable'].'&year='.$year.'">'.'点击查看</a></sapn>';
+                            
+                        }
+                        //echo $year;
+                    }
                   }
               ?>
             <div>

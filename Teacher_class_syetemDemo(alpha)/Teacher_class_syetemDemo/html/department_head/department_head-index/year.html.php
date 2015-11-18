@@ -79,7 +79,7 @@
           <div id="status1">
             <?php 
                  session_start();
-                 $work_number = $_SESSION["temp"][0];
+                 $workNumber = $_SESSION["temp"][0];
                  header("Content-type: text/html; charset:utf-8");                 
                    $con = mysql_connect("localhost","root","");
                    if (!$con)
@@ -90,7 +90,7 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_teacher where workNumber=$work_number");
+                      $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
                       $row = mysql_fetch_array($result);          
                       $GLOBALS['name']=$row['name'];
                   }
@@ -100,76 +100,62 @@
               <?php  
                echo $name;
                    ?> 
-            </span>老师</p>
+            </span>系负责人</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="../teacher_table_overview">回到首页</a>
+            <a class="a_success" title="Go to Home" href="../department_head-index">回到首页</a>
           </div>
         </div>
         <div id="main-content">
           <div id="sider">
             <ul>    
-               <li><a class="a_sider" href="../teacher_table_overview"  >查看表格</a></li>
-              <li class="now_li"><a class="a_sider a_now" href="../teacher_fill_online">填写表格</a></li>
-              <li><a class="a_sider" href="../teacher-information.php">个人信息</a></li>
+              <li class="now_li"><a class="a_sider a_now" href="../department_head-index">报课情况</a></li>  
+              <li><a class="a_sider" href="../department_head_manager-teacher.php">管理教师</a></li>
+              <li><a class="a_sider" href="../department_head-information.php">个人信息</a></li>
             </ul>
           </div>
           <div id="right-text">
-           
-              <!--在线填写demo示例-->
-               <form method="post" action="../../../php/writeOnline.php">
-               <input type="hidden" name="class_select[]" value="0">  
-              <table class="table_gen" border="1">
-                 
-                 <?php 
-                 $table_name=$_GET["table_name"];
-                 echo"<input type='hidden' name='table_name' value='".$table_name."'>";
-                 $row_begin = 100;
-                 $result = mysql_query("SELECT * FROM $table_name");
-                 while($row = mysql_fetch_array($result))
-                      {
-                        echo'<tr>';
-                        echo'<td>'.$row["grade"].'</td>';
-                        echo'<td>'.$row["major"].'</td>';
-                        echo'<td>'.$row["people"].'</td>';
-                        echo'<td>'.$row["courseName"].'</td>';
-                        echo'<td>'.$row["courseType"].'</td>';
-                        echo'<td>'.$row["courseCredit"].'</td>';
-                        echo'<td>'.$row["courseHour"].'</td>';
-                        echo'<td>'.$row["practiceHour"].'</td>';
-                        echo'<td>'.$row["onMachineHour"].'</td>';
-                        echo'<td>'.$row["timePeriod"].'</td>';
-                        if($row["people"]=='')$row_begin=0;
-                          $row_begin++;
-                        if($row_begin==2){
-                          echo'<td>选择该门课</td>';
-                          echo'<td>填写备注</td>';
-                        }
-
-                        
-                        else
-                            {
-                                if($row_begin>2)
-                              {
-                                echo'<td>'.'选课<input type="checkbox" name="class_select[]" value="'.$row["insertTime"].'">'.'</td>';
-                                echo'<td><input type="text" name="'.$row["insertTime"].'"></td>';
-                              }
-                              else
-                              {
-                               echo'<td>'.$row["teacherName"].'</td>';
-                               echo'<td>'.$row["remark"].'</td>';
-                              }
-                           }
-                        
-                        echo'</tr>';
-                          
-                      }
-                 ?>
                 
-           
-          </table>
-           <input type="submit" class="btn-success" value="提交表格">
-             </form>    
+              <!--此处应显示所有年份列表-->
+              <?php
+                 header("Content-type: text/html; charset:utf-8");                 
+                   $con = mysql_connect("localhost","root","");
+                   if (!$con)
+                  {
+                         die('Could not connect: ' . mysql_error());
+                  }
+                  else
+                  {
+                      mysql_select_db("teacher_class_system", $con);
+                      mysql_query("SET NAMES UTF8");
+                      //$year=date("Y");
+                      $sql="SELECT DISTINCT year,semester FROM task_info ORDER BY year DESC,semester DESC";
+                      $result=mysql_query($sql);
+                      while($row=mysql_fetch_array($result))
+                      {
+                        $sql1="SELECT major FROM department_head_majors WHERE workNumber='$workNumber'";
+                        $result1=mysql_query($sql1);
+                        $row1=mysql_fetch_array($result1);
+                        $sql2="SELECT relativeTable FROM task_info WHERE  relativeTable  LIKE '%$row1[major]%' AND year = $row[year] AND semester = $row[semester]";
+                        $result2=mysql_query($sql2);   
+                        
+                        while($row2=mysql_fetch_array($result2))
+                        {
+                          if(strstr($row2["relativeTable"],$row1["major"]))
+                          {
+                             echo'<li class="list-group-item">
+                          <span class="table_name">'.$row['year'].'年'.$row['semester'].'学期'.'</span>'
+                           .'<span class="table_download">
+                          <a class="list-group-item-a" href="index.php?year='.$row['year'].'&semester='.$row['semester'].'">'.'点击查看</a></sapn>';
+                         }
+                        }
+                      }
+                        
+
+                     
+                      //echo $year;
+                  }
+              ?>
             <div>
         </div>
  </div>
