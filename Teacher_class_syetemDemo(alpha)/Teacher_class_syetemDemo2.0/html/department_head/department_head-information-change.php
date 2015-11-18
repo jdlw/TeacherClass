@@ -248,8 +248,8 @@
           <div id="right-text">
             
             <div id="re-text">
-                <form action="../../php/te-check-info1.php" method="post">
-                <input type="hidden" name="major" value="0">
+                <form action="../../php/department_head-info.php" method="post">
+                <input type="hidden" name="major[]" value="0">
                 <input placeholder="姓名:"  class="re-input" type="text"   name="name" /> <span class='state1'>请输入姓名</span>
                 <input placeholder="性别:"  class="re-input" type="text"   name="sex" /> <span class='state1'>请输入性别</span> 
                 <input placeholder="生日:"  class="re-input" type="text"   name="birthday" /> <span class='state1'>请输入生日</span>
@@ -258,28 +258,28 @@
                 <input placeholder="邮箱:"  class="re-input" type="text"   name="email" /> <span class='state1'>请输入邮箱</span>
                 <input placeholder="密码:"  class="re-input" type="password"   name="password" /> <span class='state1'>请输入密码</span>
                 <input placeholder="确认密码:"  class="re-input" type="password"   name="repassword" /> <span class='state1'>请确认密码</span>
-                </br> 
-
-                </br> </br>
+                </br>
+                <div style="margin-left:20%;margin-top:30px;">
                 <label>选择所属专业：<label></br></br>
-                <input type="checkbox" name="major[]" value="软件工程"/>软件工程
+                <input type="checkbox"   name="major[]" value="tc_soft_pro"/>软件工程
                 </br> </br>
-                 <input type="checkbox" name="major[]" value="计算机（普通班）" />计算机（普通班）
+                 <input type="checkbox" name="major[]" value="tc_com_nor" />计算机（普通班）
                 </br> </br> 
-                 <input type="checkbox" name="major[]" value="计算机（实验班）" />计算机（实验班）
+                 <input type="checkbox" name="major[]" value="tc_com_ope" />计算机（实验班）
                 </br> </br>
-                <input type="checkbox" name="major[]" value="计算机（卓越班)" />计算机（卓越班）
+                <input type="checkbox" name="major[]" value="tc_com_exc" />计算机（卓越班）
                 </br> </br> 
-                 <input type="checkbox" name="major[]" value="网络工程专业" />网络工程专业
+                 <input type="checkbox" name="major[]" value="tc_net_pro" />网络工程专业
                 </br> </br>
-                <input type="checkbox" name="major[]" value="数学类" />数学类
+                <input type="checkbox" name="major[]" value="tc_math_nor" />数学类
                 </br> </br> 
-                 <input type="checkbox" name="major[]" value="数学类（实验班）" />数学类（实验班）
+                 <input type="checkbox" name="major[]" value="tc_math_ope" />数学类（实验班）
                 </br> </br>
-                 <input type="checkbox" name="major[]" value="信息安全专业（实验班）" />信息安全专业（实验班）
+                 <input type="checkbox" name="major[]" value="tc_inf_sec" />信息安全专业
                 </br> </br>
                
                   <input type="submit" id="change_submit" class=" btn-success btn-submit"  value="确认修改" />
+               </div>
                </form>
             </div>
           <div>

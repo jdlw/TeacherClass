@@ -117,7 +117,7 @@
           </div>
           <div id="right-text">
                 
-              <!--此处应显示所有年份列表-->
+              <!--此处应显示当前年份的课表列表-->
               <?php
                  header("Content-type: text/html; charset:utf-8");                 
                    $con = mysql_connect("localhost","root","");
@@ -128,10 +128,11 @@
                   else
                   {
                       $year = $_GET["year"];
+                      $semester = $_GET["semester"];
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       //$year=date("Y");
-                      $sql="SELECT relativeTable FROM task_info WHERE year='$year'";
+                      $sql="SELECT relativeTable FROM task_info WHERE year='$year'AND taskState>1 AND semester = '$semester'";
                       $result=mysql_query($sql);
                       while($row=mysql_fetch_array($result))
                       {

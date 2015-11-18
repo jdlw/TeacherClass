@@ -240,7 +240,7 @@
                 </tr>
                 <tbody>
             </table>
-                <form action="../../php/ma-tea-ac1.php" method="post">
+                <form action="../../php/teacher-manage.php" method="post">
                 <input placeholder="职工号:"  class="re-input" type="text"   name="workNumber" required="required"/> <span class='state1'>请输入职工</span>
                 <input placeholder="姓名:"  class="re-input" type="text"   name="name" "/> <span class='state1'>请输入姓名(可不填)</span>
                 <input placeholder="密码:"  class="re-input" type="text"   name="password" required="required"/> <span class='state1'>请输入密码</span>

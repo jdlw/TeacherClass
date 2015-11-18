@@ -100,7 +100,7 @@
               <?php  
                echo $name;
                    ?> 
-            </span>系负责人</p>
+            </span>教学办</p>
           </div>
           <div id="status2">
             <a class="a_success" title="Go to Home" href="../department_head-index">回到首页</a>
@@ -131,19 +131,12 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       //$year=date("Y");
-
-                      //判断表格状态以选择显示分行表还是不分行表
                       $sql="SELECT taskState FROM task_info WHERE relativeTable='$table_name'";
                       $result = mysql_query($sql);
                       $row = mysql_fetch_array($result);
-                      //echo $row[0];
-                      // if($row[0]==2)
-                      // {
-                          //如果是已经公示完的表格，显示最终结果
-                          $table_name = 'cb_'.$table_name;
-                          //echo $table_name;
-                          $sql = "SELECT * FROM $table_name";
-                          $result = mysql_query($sql);
+                      $table_name = 'cb_'.$table_name;
+                      $sql = "SELECT * FROM $table_name";
+                      $result = mysql_query($sql);
                           while($row = mysql_fetch_array($result))
                           {
 
@@ -215,6 +208,13 @@
                   }
               ?>
             </table>
+             <?php
+            echo'<form action="../../../php/file_export.php" method="post">
+            <input type="hidden" name="table_name" value = "'.$table_name.'">
+            <input type="submit"  class="btn-success btn-submit-export" value="导出为excel">
+             </form>
+            ';
+                                 ?>
             <div>
         </div>
  </div>

@@ -129,16 +129,26 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       //$year=date("Y");
-                      $sql="SELECT DISTINCT year FROM task_info WHERE taskState>-1 ORDER BY year DESC";
+                      $sql="SELECT DISTINCT year,semester,relativeTable FROM task_info ORDER BY year DESC,semester DESC";
                       $result=mysql_query($sql);
                       while($row=mysql_fetch_array($result))
                       {
-                       echo'<li class="list-group-item">
-                          <span class="table_name">'.$row['year'].'</span>'
+                        $sql1="SELECT major FROM department_head_majors WHERE workNumber='$workNumber'";
+                        $result1=mysql_query($sql1);
+                        while($row1=mysql_fetch_array($result1))
+                        {
+                          if(strstr($row["relativeTable"],$row1["major"]))
+                          {
+                             echo'<li class="list-group-item">
+                          <span class="table_name">'.$row['year'].'年'.$row['semester'].'学期'.'</span>'
                            .'<span class="table_download">
-                          <a class="list-group-item-a" href="index.php?year='.$row['year'].'">'.'点击查看</a></sapn>';
-                          
+                          <a class="list-group-item-a" href="index.php?year='.$row['year'].'&semester='.$row['semester'].'">'.'点击查看</a></sapn>';
+                          }
+                        }
                       }
+                        
+
+                     
                       //echo $year;
                   }
               ?>

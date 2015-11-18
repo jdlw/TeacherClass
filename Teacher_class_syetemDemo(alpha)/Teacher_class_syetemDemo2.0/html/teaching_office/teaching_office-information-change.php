@@ -248,7 +248,7 @@
           <div id="right-text">
             
             <div id="re-text">
-                <form action="../../php/te-check-info.php" method="post">
+                <form action="../../php/teaching_office-info.php" method="post">
                 <input placeholder="姓名:"  class="re-input" type="text"   name="name" "/> <span class='state1'>请输入姓名</span>
              <!--   <input placeholder="性别:"  class="re-input" type="text"   name="sex" "/> <span class='state1'>请输入性别</span>   -->
                 <input placeholder="电话:"  class="re-input" type="text"   name="telephone" "/> <span class='state1'>请输入电话</span>  

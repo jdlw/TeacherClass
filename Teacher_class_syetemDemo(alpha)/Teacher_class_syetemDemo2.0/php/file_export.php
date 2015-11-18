@@ -6,28 +6,29 @@
     $excel = new PHPExcel();
     $table_name = $_POST["table_name"];
       switch ($table_name) {
-      case 'TC_com_ope':
-       $table_name_ch="计算机（实验班）.xls";
+      case (strstr($table_name,'cb_tc_com_exc')):
+       $table_name_ch="计算机（卓越班）.xls";
         break;
-      case 'TC_com_nor':
+      //case 'cb_tc_com_nor':
+      case (strstr($table_name,'cb_tc_com_nor')):
        $table_name_ch="计算机专业.xls";
         break;  
-      case 'TC_com_exc':
-       $table_name_ch="计算机（卓越班）.xls";
+      case (strstr($table_name,'cb_tc_com_ope')):
+       $table_name_ch="计算机（实验班）.xls";
         break; 
-      case 'TC_math_nor':
+      case (strstr($table_name,'cb_tc_math_nor')):
        $table_name_ch="数学类.xls";
         break; 
-      case 'TC_math_ope':
+      case (strstr($table_name,'cb_tc_math_ope')):
        $table_name_ch="数学类（实验班）.xls";
         break; 
-      case 'TC_inf_sec':
+      case (strstr($table_name,'cb_tc_inf_sec')):
        $table_name_ch="信息安全.xls";
         break; 
-      case 'TC_net_pro':
+      case (strstr($table_name,'cb_tc_net_pro')):
        $table_name_ch="网络工程.xls";
         break; 
-      case 'TC_soft_pro':
+      case (strstr($table_name,'cb_tc_soft_pro')):
        $table_name_ch="软件工程.xls";
         break;  
         default:$table_name_ch="未命名.xls";;
@@ -50,9 +51,9 @@
     {
       mysql_select_db("teacher_class_system", $con);
          mysql_query("SET NAMES UTF8");
-         $result = mysql_query("SELECT grade,major,num,class_name,class_type,class_credit,class_time,op_time, 
-        pr_time,fl_time,teacher_name,addition FROM $table_name");
-         
+         $result = mysql_query("SELECT grade,major,people,courseName,courseType,courseCredit,
+          courseHour,practiceHour,onMachineHour,timePeriod,teacherName,remark FROM $table_name");
+         //echo $table_name."</br>";
         while($row = mysql_fetch_row($result)){$data[] = $row;}
         //var_dump($data);
 

@@ -34,7 +34,7 @@ $con = mysql_connect("localhost","root","");
 					echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
 					echo"
 					<script>alert('账号或密码错误！');
-					window.location.href='../html/login.html'</script>";
+					window.location.href='../html/index.php'</script>";
 				}
 	
 			 }
@@ -60,7 +60,7 @@ $con = mysql_connect("localhost","root","");
 					echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
 					echo"
 					<script>alert('账号或密码错误！');
-					window.location.href='../html/login.html'</script>";
+					window.location.href='../html/index.php'</script>";
 				}
 	
 			 }
@@ -86,7 +86,7 @@ $con = mysql_connect("localhost","root","");
 					echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
 					echo"
 					<script>alert('账号或密码错误！');
-					window.location.href='../html/login.html'</script>";
+					window.location.href='../html/index.php'</script>";
 				}
 	
 			 }	

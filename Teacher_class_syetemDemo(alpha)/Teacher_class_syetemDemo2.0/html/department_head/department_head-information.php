@@ -181,13 +181,39 @@
                       $result = mysql_query("SELECT * FROM department_head_majors");
                       while($row = mysql_fetch_array($result))
                             {
-                              if( $workNumber==$row['workNumber'])
+                              if($workNumber==$row['workNumber'])
                               {
-                                echo"<td>".$row['major']."</td>";
+                               switch ($row['major']) {
+                            case 'tc_com_exc':
+                              $major_name='计算机卓越班';
+                              break;
+                            case strstr($row['major'], 'tc_com_ope'):
+                              $major_name='计算机实验班';
+                              break;
+                            case strstr($row['major'],'tc_com_nor'):
+                              $major_name='计算机普通班';
+                              break;
+                            case strstr($row['major'],'tc_inf_sec'):
+                              $major_name='信息安全';
+                              break;
+                            case strstr($row['major'],'tc_math_nor'):
+                              $major_name='数学普通班';
+                              break;
+                            case strstr($row['major'],'tc_math_ope'):
+                              $major_name='数学实验班';
+                              break;
+                            case strstr($row['major'],'tc_net_pro'):
+                              $major_name='网络工程';
+                              break;
+                            case strstr($row['major'],'tc_soft_pro'):
+                              $major_name='软件工程';
+                              break;                     
+                            default:
+                                
                               }
-                              
+                              echo"<td>".$major_name."</td>";
                             }
-                     
+                     }
                   }  
                 ?>
                 <tr>

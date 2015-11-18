@@ -128,19 +128,16 @@
                   else
                   {
                       $year = $_GET["year"];
+                      
                       $table_name = $_GET["table_name"];
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       //$year=date("Y");
 
-                      //判断表格状态以选择显示分行表还是不分行表
+                      
                       $sql="SELECT taskState FROM task_info WHERE relativeTable='$table_name'";
                       $result = mysql_query($sql);
                       $row = mysql_fetch_array($result);
-                      //echo $row[0];
-                      // if($row[0]==2)
-                      // {
-                          //如果是已经公示完的表格，显示最终结果
                           $table_name = 'cb_'.$table_name;
                           //echo $table_name;
                           $sql = "SELECT * FROM $table_name";
@@ -163,59 +160,17 @@
                               echo"</td></tr>";
                             
                           }
-                      // }
-                      // else
-                      // {
-                      //     //否则，查看自己填写的报课情况,在此要先输出表格的头部
-                      //     //$table_name = 'cb_'.$table_name;
-                      //     //echo $table_name;
-                      //     $sql = "SELECT * FROM $table_name WHERE major=''or major='专业'";
-                      //     $result = mysql_query($sql);
-                      //     while($row = mysql_fetch_array($result))
-                      //     {
-                      //       echo"<tr><td>".$row['grade'];     
-                      //         echo"<td>".$row['major']."</td>";
-                      //         echo"<td>".$row['people']."</td>";
-                      //         echo"<td>".$row['courseName']."</td>";
-                      //         echo"<td>".$row['courseType']."</td>";
-                      //         echo"<td>".$row['courseCredit']."</td>";
-                      //         echo"<td>".$row['courseHour']."</td>";
-                      //         echo"<td>".$row['practiceHour']."</td>";
-                      //         echo"<td>".$row['onMachineHour']."</td>";
-                      //         echo"<td>".$row['timePeriod']."</td>";
-                      //         echo"<td>".$row['teacherName']."</td>";
-                      //         echo"<td>".$row['remark']."</td>";
-                      //         echo"</td></tr>";
-                      //     }
-                      //     //echo $workNumber;
-                      //     $sql = "SELECT * FROM $table_name WHERE workNumber='$workNumber'";
-                      //     $result = mysql_query($sql);
-                      //     while($row = mysql_fetch_array($result))
-                      //     {
-
-                      //         echo"<tr><td>".$row['grade'];     
-                      //         echo"<td>".$row['major']."</td>";
-                      //         echo"<td>".$row['people']."</td>";
-                      //         echo"<td>".$row['courseName']."</td>";
-                      //         echo"<td>".$row['courseType']."</td>";
-                      //         echo"<td>".$row['courseCredit']."</td>";
-                      //         echo"<td>".$row['courseHour']."</td>";
-                      //         echo"<td>".$row['practiceHour']."</td>";
-                      //         echo"<td>".$row['onMachineHour']."</td>";
-                      //         echo"<td>".$row['timePeriod']."</td>";
-                      //         echo"<td>".$row['teacherName']."</td>";
-                      //         echo"<td>".$row['remark']."</td>";
-                      //         echo"</td></tr>";
-                            
-                      //     }
-                      //     //echo $sql;
-                      //     //echo ;
-                      // }
-                      
-                      
+                           
                   }
               ?>
             </table>
+            <?php
+            echo'<form action="../../../php/file_export.php" method="post">
+            <input type="hidden" name="table_name" value = "'.$table_name.'">
+            <input type="submit"  class="btn-success btn-submit-export" value="导出为excel">
+             </form>
+            ';
+                                 ?>
             <div>
         </div>
  </div>
