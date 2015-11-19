@@ -1,10 +1,11 @@
 <?php
+    require dirname(__DIR__).'/lib/functions.php';
     header("Content-type: text/html; charset=utf-8"); 
 	  //引入PHPExcel库文件
     include 'PHPExcel_1.8.0_doc/Classes/PHPExcel.php';
     //创建对象
     $excel = new PHPExcel();
-    $table_name = $_POST["table_name"];
+    $table_name = empty($_POST["table_name"])? 'cb_tc_com_ope201502': $_POST["table_name"];
       switch ($table_name) {
       case (strstr($table_name,'cb_tc_com_exc')):
        $table_name_ch="计算机（卓越班）.xls";
@@ -31,7 +32,9 @@
       case (strstr($table_name,'cb_tc_soft_pro')):
        $table_name_ch="软件工程.xls";
         break;  
-        default:$table_name_ch="未命名.xls";;
+      default:
+        $table_name_ch="未命名.xls";
+        break;
     }
     //Excel表格式,这里简略写了8列
     $letter = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q');
@@ -42,27 +45,9 @@
     //$excel->getActiveSheet()->setCellValue("$letter[$i]1","$tableheader[$i]");
    // }
     //表格数组
-    $con = mysql_connect("localhost","root","");
-    if (!$con)
-    {
-      die('Could not connect: ' . mysql_error());
-    }
-    else
-    {
-      mysql_select_db("teacher_class_system", $con);
-         mysql_query("SET NAMES UTF8");
-         $result = mysql_query("SELECT grade,major,people,courseName,courseType,courseCredit,
-          courseHour,practiceHour,onMachineHour,timePeriod,teacherName,remark FROM $table_name");
-         //echo $table_name."</br>";
-        while($row = mysql_fetch_row($result)){$data[] = $row;}
-        //var_dump($data);
-
-       
-      
-/*
-
-     
-    */
+    $con = get_db();
+    $result = mysql_query("SELECT grade,major,people,courseName,courseType,courseCredit,courseHour,practiceHour,onMachineHour,timePeriod,teacherName,remark FROM $table_name");
+    while($row = mysql_fetch_row($result)){$data[] = $row;}
     
     for ($i =1;$i <=count($data);$i++) {
           $j = 0;
@@ -71,10 +56,6 @@
           $j++;
         }
     }
-  }
-
- 
-    //echo $data[1][0]." ".$data[1][1];
     
     //创建Excel输入对象
     $write = new PHPExcel_Writer_Excel5($excel);
