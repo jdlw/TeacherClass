@@ -123,43 +123,59 @@
                  
                  <?php 
                  $table_name=$_GET["table_name"];
+<<<<<<< HEAD
                  echo"<input type='hidden' name='table_name' value='".$table_name."'>";
                  //$row_begin = 100;
                  $result = mysql_query("SELECT * FROM $table_name where teacherName = '' or  teacherName ='任课教师'");
                  while($row = mysql_fetch_array($result))
+=======
+                 echo "<input type='hidden' name='table_name' value='".$table_name."'>";
+                 $row_begin = -1;
+                 $result = mysql_query("SELECT * FROM $table_name where teacherName = '' or  teacherName ='任课教师'");
+                 while($row = mysql_fetch_assoc($result))
+>>>>>>> origin/master
                       {
-                        echo'<tr>';
-                        echo'<td>'.$row["grade"].'</td>';
-                        echo'<td>'.$row["major"].'</td>';
-                        echo'<td>'.$row["people"].'</td>';
-                        echo'<td>'.$row["courseName"].'</td>';
-                        echo'<td>'.$row["courseType"].'</td>';
-                        echo'<td>'.$row["courseCredit"].'</td>';
-                        echo'<td>'.$row["courseHour"].'</td>';
-                        echo'<td>'.$row["practiceHour"].'</td>';
-                        echo'<td>'.$row["onMachineHour"].'</td>';
-                        echo'<td>'.$row["timePeriod"].'</td>';
-                        if($row["people"]=='')$row_begin=0;
-                          $row_begin++;
+                        if(empty($row['grade']) && empty($row["major"])){
+                          //跳过缺损的行
+                          continue;
+                        }
+                        echo '<tr>';
+                        if($row_begin == -1 && empty($row["major"])){
+                          echo '<td colspan="'.(count($row)-2).'">'.$row["grade"].'</td>';
+                        }else{
+                        echo '<td>'.$row["grade"].'</td>';
+                        echo '<td>'.$row["major"].'</td>';
+                        echo '<td>'.$row["people"].'</td>';
+                        echo '<td>'.$row["courseName"].'</td>';
+                        echo '<td>'.$row["courseType"].'</td>';
+                        echo '<td>'.$row["courseCredit"].'</td>';
+                        echo '<td>'.$row["courseHour"].'</td>';
+                        echo '<td>'.$row["practiceHour"].'</td>';
+                        echo '<td>'.$row["onMachineHour"].'</td>';
+                        echo '<td>'.$row["timePeriod"].'</td>';
+                      }
+                        if($row["people"]=='')
+                          $row_begin=0;
+                        $row_begin++;
                         if($row_begin==2){
-                          echo'<td>选择该门课</td>';
-                          echo'<td>填写备注</td>';
+                          echo '<td>选择该门课</td>';
+                          echo '<td>填写备注</td>';
                         }
                         else
                             {
                                 if($row_begin>2)
                               {
-                                echo'<td>'.'选课<input type="checkbox" name="class_select[]" value="'.$row["insertTime"].'">'.'</td>';
-                                echo'<td><input type="text" name="'.$row["insertTime"].'"></td>';
+                                echo '<td>'.'选课<input type="checkbox" name="class_select[]" value="'.$row["insertTime"].'">'.'</td>';
+                                echo '<td><input type="text" name="'.$row["insertTime"].'"></td>';
                               }
-                              else
+                              else if($row_begin != 1)
                               {
-                               echo'<td>'.$row["teacherName"].'</td>';
-                               echo'<td>'.$row["remark"].'</td>';
+                               echo '<td>'.$row["teacherName"].'</td>';
+                               echo '<td>'.$row["remark"].'</td>';
                               }
                            }
                         
-                        echo'</tr>';
+                        echo '</tr>';
                           
                       }
                  ?>
