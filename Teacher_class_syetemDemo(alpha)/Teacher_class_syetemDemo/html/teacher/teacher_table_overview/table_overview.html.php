@@ -139,7 +139,8 @@
                       //echo $row[0];
                       if($row[0]==2)
                       {
-                          //如果是已经公示完的表格，显示最终结果
+                          //如果是已经公示完的表格，显示最终结果，先输出一行提示
+                          echo"<p class='empty-warning'>该表目前已公示</p>";
                           $table_name = 'cb_'.$table_name;
                           //echo $table_name;
                           $sql = "SELECT * FROM $table_name";
@@ -165,47 +166,56 @@
                       }
                       else
                       {
-                          //否则，查看自己填写的报课情况,在此要先输出表格的头部
-                          //$table_name = 'cb_'.$table_name;
-                          //echo $table_name;
-                          $sql = "SELECT * FROM $table_name WHERE major=''or major='专业'";
-                          $result = mysql_query($sql);
-                          while($row = mysql_fetch_array($result))
-                          {
-                            echo"<tr><td>".$row['grade'];     
-                              echo"<td>".$row['major']."</td>";
-                              echo"<td>".$row['people']."</td>";
-                              echo"<td>".$row['courseName']."</td>";
-                              echo"<td>".$row['courseType']."</td>";
-                              echo"<td>".$row['courseCredit']."</td>";
-                              echo"<td>".$row['courseHour']."</td>";
-                              echo"<td>".$row['practiceHour']."</td>";
-                              echo"<td>".$row['onMachineHour']."</td>";
-                              echo"<td>".$row['timePeriod']."</td>";
-                              echo"<td>".$row['teacherName']."</td>";
-                              echo"<td>".$row['remark']."</td>";
-                              echo"</td></tr>";
-                          }
-                          //echo $work_number;
-                          $sql = "SELECT * FROM $table_name WHERE workNumber='$work_number'";
-                          $result = mysql_query($sql);
-                          while($row = mysql_fetch_array($result))
-                          {
 
+                          //否则，说明表格还没公示，显示填报记录，但是要先判断填报记录是否为0
+                          $sql = "SELECT count(*) FROM $table_name WHERE workNumber='$work_number'";
+                          $result = mysql_query($sql);
+                          $row = mysql_fetch_array($result);
+                          if($row[0]==0)
+                          {
+                            echo"<p class='empty-warning'>您暂时还没有填报该表</p>";
+                          }
+                          else{
+                            echo"<p class='completed-warning'>该表暂未公示,您的填报记录为：</p>";
+                            $sql = "SELECT * FROM $table_name WHERE major=''or major='专业'";
+                            $result = mysql_query($sql);
+                            while($row = mysql_fetch_array($result))
+                            {
                               echo"<tr><td>".$row['grade'];     
-                              echo"<td>".$row['major']."</td>";
-                              echo"<td>".$row['people']."</td>";
-                              echo"<td>".$row['courseName']."</td>";
-                              echo"<td>".$row['courseType']."</td>";
-                              echo"<td>".$row['courseCredit']."</td>";
-                              echo"<td>".$row['courseHour']."</td>";
-                              echo"<td>".$row['practiceHour']."</td>";
-                              echo"<td>".$row['onMachineHour']."</td>";
-                              echo"<td>".$row['timePeriod']."</td>";
-                              echo"<td>".$row['teacherName']."</td>";
-                              echo"<td>".$row['remark']."</td>";
-                              echo"</td></tr>";
-                            
+                                echo"<td>".$row['major']."</td>";
+                                echo"<td>".$row['people']."</td>";
+                                echo"<td>".$row['courseName']."</td>";
+                                echo"<td>".$row['courseType']."</td>";
+                                echo"<td>".$row['courseCredit']."</td>";
+                                echo"<td>".$row['courseHour']."</td>";
+                                echo"<td>".$row['practiceHour']."</td>";
+                                echo"<td>".$row['onMachineHour']."</td>";
+                                echo"<td>".$row['timePeriod']."</td>";
+                                echo"<td>".$row['teacherName']."</td>";
+                                echo"<td>".$row['remark']."</td>";
+                                echo"</td></tr>";
+                            }
+                            //echo $work_number;
+                            $sql = "SELECT * FROM $table_name WHERE workNumber='$work_number'";
+                            $result = mysql_query($sql);
+                            while($row = mysql_fetch_array($result))
+                            {
+
+                                echo"<tr><td>".$row['grade'];     
+                                echo"<td>".$row['major']."</td>";
+                                echo"<td>".$row['people']."</td>";
+                                echo"<td>".$row['courseName']."</td>";
+                                echo"<td>".$row['courseType']."</td>";
+                                echo"<td>".$row['courseCredit']."</td>";
+                                echo"<td>".$row['courseHour']."</td>";
+                                echo"<td>".$row['practiceHour']."</td>";
+                                echo"<td>".$row['onMachineHour']."</td>";
+                                echo"<td>".$row['timePeriod']."</td>";
+                                echo"<td>".$row['teacherName']."</td>";
+                                echo"<td>".$row['remark']."</td>";
+                                echo"</td></tr>";
+                              
+                            }
                           }
                           //echo $sql;
                           //echo ;

@@ -124,8 +124,8 @@
                  <?php 
                  $table_name=$_GET["table_name"];
                  echo"<input type='hidden' name='table_name' value='".$table_name."'>";
-                 $row_begin = 100;
-                 $result = mysql_query("SELECT * FROM $table_name where teacherName = ''");
+                 //$row_begin = 100;
+                 $result = mysql_query("SELECT * FROM $table_name where teacherName = '' or  teacherName ='任课教师'");
                  while($row = mysql_fetch_array($result))
                       {
                         echo'<tr>';

@@ -6,6 +6,7 @@ $_SESSION["temp"][0]=$name;
 $pwd = $_POST["login-password"];
 $idf = $_POST["ident"];
 $jud=0;
+echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
 $con = get_db();
 if($idf=="teacher")//教师类型身份验证
 {
@@ -15,6 +16,7 @@ if($idf=="teacher")//教师类型身份验证
 		if($row['workNumber']== $name&&$row['password']== $pwd)
 		{
 			jump_success("登录成功", '../html/teacher/teacher_table_overview/index.php');
+			
 		}
 
 	}
