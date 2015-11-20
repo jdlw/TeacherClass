@@ -124,15 +124,21 @@
                  <?php 
                  $table_name=$_GET["table_name"];
 <<<<<<< HEAD
+<<<<<<< HEAD
                  echo"<input type='hidden' name='table_name' value='".$table_name."'>";
                  //$row_begin = 100;
                  $result = mysql_query("SELECT * FROM $table_name where teacherName = '' or  teacherName ='任课教师'");
                  while($row = mysql_fetch_array($result))
 =======
+=======
+>>>>>>> origin/master
                  echo "<input type='hidden' name='table_name' value='".$table_name."'>";
                  $row_begin = -1;
                  $result = mysql_query("SELECT * FROM $table_name where teacherName = '' or  teacherName ='任课教师'");
                  while($row = mysql_fetch_assoc($result))
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
                       {
                         if(empty($row['grade']) && empty($row["major"])){
