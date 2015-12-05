@@ -103,7 +103,6 @@
             </span>系负责人</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="../department_head-index">回到首页</a>
           </div>
         </div>
         <div id="main-content">

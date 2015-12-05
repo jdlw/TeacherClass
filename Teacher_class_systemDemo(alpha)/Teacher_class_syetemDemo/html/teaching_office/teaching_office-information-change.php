@@ -227,9 +227,7 @@
             </span>教学办</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="teaching_office-index.php">回到首页</a>
             <div id="refer-to-change">
-              <a class="btn-recover" href="teaching_office-information.php">返回</a>
             </div>
           </div>
 
