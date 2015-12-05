@@ -165,7 +165,7 @@
                  <input type="radio" name="file_input" value="tc_inf_sec" />信息安全专业（实验班）
                 </br> </br>
        
-               <button  type="submit" class="btn btn-success ">确认提交</button>
+               <button  type="initial" class="btn-initial ">确认提交</button>
           </form>
         </div>
          

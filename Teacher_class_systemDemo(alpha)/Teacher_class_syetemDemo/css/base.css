@@ -27,11 +27,16 @@ h3{ text-align: center;}
 				height: 40px;
 				border-top: solid 1px #7c7c7c  ;
 			}
-.btn-submit{ margin-top: 13px; margin-left: 20%; height:30px;width:70px;text-align: center;font-family: "微软雅黑"; }
-.btn-success{border: none; background: #57ae57;color: #fff;}
-.btn-success:hover{background: #468e46;}
-.btn-recover{border: none; background: #2f96b4;color: #fff;}
+.btn-recover{border: none; background: #2f96b4;margin-top: 10px; margin-left: 20%; height:20px;width:70px;text-align: center;font-family: "微软雅黑";color: #fff;}
 .btn-recover:hover{background: #2887a3;}
+.btn-submit{ background: #57ae57;margin-top: 10px; margin-left: 20%; height:30px;width:70px;text-align: center;font-family: "微软雅黑"; }
+.btn-submit:hover{background: #468e46;}
+.btn-success{border: none; background: #57ae57;margin-top: 10px; margin-left: 20%; height:30px;width:70px;text-align: center;font-family: "微软雅黑";color: #fff;}
+.btn-success:hover{background: #468e46;}
+.btn-table{border: none; background: #57ae57;margin-top: 10px; margin-left: 8%; height:30px;width:70px;text-align: center;font-family: "微软雅黑";color: #fff;}
+.btn-table:hover{background: #468e46;}
+.btn-initial{border: none; background: #57ae57;margin-top: 10px;height: 30px;width: auto;text-align: center;font-family: "微软雅黑";color: #fff;}
+.btn-initial:hover{background: #468e46;}
 #sub-recover{float: left; margin-left: 20px;}
 #sub-login{float: right; margin-right: 20px;}
 /*学生界面*/
@@ -163,7 +168,7 @@ margin-top:30px;font-size: 13px; margin-left: 20%; }
 #btn-clse{ font-family: "微软雅黑"; font-size: 14px; padding: 10px;margin-top: 20px; position: relative; margin-left: 20%; margin-right: auto;}
 #status1 span{ color: #fff;}
 /*管理员界面*/
-#st-info-m{ margin-left: initial;}
+#st-info-m{ margin-left: 0;}
 #st-info-m1{ margin-left: 20%;}
 .judgement{width:100%;   font-size: 12px; position: relative; margin-left:22%;margin-top: 20px;}
 #serach-box input{ height:30px;width: 200px;}

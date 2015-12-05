@@ -124,7 +124,7 @@
                <input type="file" name="testFile" >
                </br> </br> </br> 
        
-               <button  type="submit" class="btn btn-success ">教师账号导入</button>
+               <button  type="initial" class="btn-initial ">教师账号导入</button>
           </form>
           <table class="table_gen" border="1" id="st-info-m">
               <tbody>
