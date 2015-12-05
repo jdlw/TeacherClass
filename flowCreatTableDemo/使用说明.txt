@@ -1,6 +1,0 @@
-下载前面两个php文件（teaching_office-index.php和file_input.php），
-分别替换下面路径下的同名php文件：
-...\wamp\www\Teacher_class_syetemDemo2.0\html\teaching_office
-...\wamp\www\Teacher_class_syetemDemo2.0\php
-之后便可登陆教学办测试表格上传功能
-（上传一份表格后，后台先建两张表，并更新两表的数据）
