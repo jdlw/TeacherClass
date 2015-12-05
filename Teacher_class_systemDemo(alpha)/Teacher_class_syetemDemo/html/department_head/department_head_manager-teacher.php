@@ -206,7 +206,7 @@
           <div id="right-text">
             
             <div id="re-text">
-              <table class="table_gen" border="1" id="st-info-m">
+              <table class="table_gen" border="1" id="st-info-m1">
               <tbody>
                 <tr>
                 <th>职工号</th>
@@ -241,7 +241,7 @@
             </table>
                 <form action="../../php/teacher-manage.php" method="post">
                 <input placeholder="职工号:"  class="re-input" type="text"   name="workNumber" required="required"/> <span class='state1'>请输入职工</span>
-                <input placeholder="姓名:"  class="re-input" type="text"   name="name" "/> <span class='state1'>请输入姓名(可不填)</span>
+                <input placeholder="姓名:"  class="re-input" type="text"   name="name" /> <span class='state1'>请输入姓名(可不填)</span>
                 <input placeholder="密码:"  class="re-input" type="text"   name="password" required="required"/> <span class='state1'>请输入密码</span>
               
                     </br>      

@@ -277,9 +277,9 @@
                  <input type="checkbox" name="major[]" value="tc_inf_sec" />信息安全专业
                 </br> </br>
                
-                  <input type="submit" id="change_submit" class=" btn-success btn-submit"  value="确认修改" />
                </div>
                </form>
+                  <input type="submit" id="change_submit" class=" btn-success btn-submit"  value="确认修改" />
             </div>
           <div>
     </div>

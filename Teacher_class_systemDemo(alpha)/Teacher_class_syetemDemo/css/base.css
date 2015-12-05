@@ -27,7 +27,7 @@ h3{ text-align: center;}
 				height: 40px;
 				border-top: solid 1px #7c7c7c  ;
 			}
-.btn-submit{ margin-top: 13px; height:30px;width:70px;text-align: center;font-family: "微软雅黑"; }
+.btn-submit{ margin-top: 13px; margin-left: 20%; height:30px;width:70px;text-align: center;font-family: "微软雅黑"; }
 .btn-success{border: none; background: #57ae57;color: #fff;}
 .btn-success:hover{background: #468e46;}
 .btn-recover{border: none; background: #2f96b4;color: #fff;}
@@ -81,7 +81,7 @@ a.a_now:link,a.a_now:visited{background-color: #17a9e3;color: #fff;}
 	padding: 10px;min-width: 50px;}
 .table_gen td{ padding: 5px; border: solid 1px #cdcdcd; font-size: 13px;}
 /*student-information界面*/
-#refer-to-change{ position: absolute; z-index: 30; top: 0px; right: 35px;}
+#refer-to-change{ position: absolute; z-index: 30; top: 0px; right: 15px;}
 #refer-to-change a{ text-indent: 0;line-height: 20px;display: block; font-size: 12px;padding: 5px;
  color:#fff;text-decoration: none;margin-top: 5px;}
 a.a_exit:link,a.a_exit:visited
@@ -163,11 +163,12 @@ margin-top:30px;font-size: 13px; margin-left: 20%; }
 #btn-clse{ font-family: "微软雅黑"; font-size: 14px; padding: 10px;margin-top: 20px; position: relative; margin-left: 20%; margin-right: auto;}
 #status1 span{ color: #fff;}
 /*管理员界面*/
-#st-info-m{ margin-left: 22%;}
+#st-info-m{ margin-left: initial;}
+#st-info-m1{ margin-left: 20%;}
 .judgement{width:100%;   font-size: 12px; position: relative; margin-left:22%;margin-top: 20px;}
 #serach-box input{ height:30px;width: 200px;}
 #serach-box  .re-btn{ padding: 5px;width: 100px;}
-.btn-submit-export{width: 100px;font-family: "微软雅黑";padding: 5px;margin-left: 8%;margin-bottom: 50px;}
+.btn-submit-export{width: 100px;font-family: "微软雅黑";padding: 5px;margin-left: 8%;margin-top: 10px; margin-bottom: 50px;}
 #right-text span{}
 #right-text .class_state{ font-size: 16px; color: red;margin-left:0;}
 /*教学办上传页面*/
