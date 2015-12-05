@@ -172,22 +172,28 @@
                           //echo $sql1;
                           $result1 = mysql_query($sql1);
                           $row1=mysql_fetch_array($result1);
-                          
+                          $sql2="SELECT teacherDeadline FROM task_info where relativeTable = '$table_name1'";
+                          $result2 = mysql_query($sql2);
+                          $row2=mysql_fetch_array($result2);
                           if($row1[0]==0)
                           {
                              //未填写
                           echo'<li class="list-group-item">
                           <span class="table_name">'.$table_name_show.'</span>'
+                           .'<span class="table_time">
+                           截止日期:'.$row2[0].'</span>'
                            .'<span class="table_download">
-                          <a class="list-group-item-a" href="index.php?table_name='.$row['relativeTable'].'">'.'点击填写</a></sapn>';
+                          <a class="list-group-item-a" href="index.php?table_name='.$row['relativeTable'].'">'.'点击填写</a></span>';
                           }
                 
                           //已经填写
                           else{
                             echo'<li class="list-group-item">
                           <span class="table_name">'.$table_name_show.'</span>'
+                           .'<span class="table_time">
+                           截止日期:'.$row2[0].'</span>'
                            .'<span class="table_complete">
-                          已填写过</sapn>';
+                          已填写过</span>';
                           }
                           //echo $result1;
                           if($count==0)
