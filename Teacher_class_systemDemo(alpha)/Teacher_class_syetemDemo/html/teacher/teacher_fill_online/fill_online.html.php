@@ -103,7 +103,6 @@
             </span>老师</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="../teacher_table_overview">回到首页</a>
           </div>
         </div>
         <div id="main-content">
@@ -182,7 +181,7 @@
                 
            
           </table>
-           <input type="submit" class="btn-success" value="提交表格">
+           <input type="table" class="btn-table" value="提交表格">
              </form>    
             <div>
         </div>
