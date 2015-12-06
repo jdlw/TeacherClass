@@ -178,20 +178,26 @@
                           if($row1[0]==0)
                           {
                              //未填写
+                            $yearTime=substr($row2[0], 0,4);
+                            $monthTime=substr($row2[0], 4,2);
+                            $dayTime=substr($row2[0], 6,2);
                           echo'<li class="list-group-item">
                           <span class="table_name">'.$table_name_show.'</span>'
                            .'<span class="table_time">
-                           截止日期:'.$row2[0].'</span>'
+                           截止日期:'.$yearTime.'/'.$monthTime.'/'.$dayTime.'</span>'
                            .'<span class="table_download">
                           <a class="list-group-item-a" href="index.php?table_name='.$row['relativeTable'].'">'.'点击填写</a></span>';
                           }
                 
                           //已经填写
                           else{
+                            $yearTime=substr($row2[0], 0,4);
+                            $monthTime=substr($row2[0], 4,2);
+                            $dayTime=substr($row2[0], 6,2);
                             echo'<li class="list-group-item">
                           <span class="table_name">'.$table_name_show.'</span>'
                            .'<span class="table_time">
-                           截止日期:'.$row2[0].'</span>'
+                           截止日期:'.$yearTime.'/'.$monthTime.'/'.$dayTime.'</span>'
                            .'<span class="table_complete">
                           已填写过</span>';
                           }
