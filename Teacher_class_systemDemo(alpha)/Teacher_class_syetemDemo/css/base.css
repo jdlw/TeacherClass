@@ -103,8 +103,8 @@ a.a_exit:hover,a.a_exit:active
 }
 
 /*填写表格界面*/
-.table_complete{float: right;margin-right: 50px;color:#FF8686;font-size: 14px;}
-.table_time{ margin-right: 30px; float: right;color:red;font-size: 14px;}
+.table_complete{float: right;margin-right: 50px;color:#DDDDDD;font-size: 14px;}
+.table_time{ margin-right: 30px;position: absolute; left: 45%; color:red;font-size: 14px;}
 .list_table{  
   padding-left: 0;
     margin-bottom: 20px;
