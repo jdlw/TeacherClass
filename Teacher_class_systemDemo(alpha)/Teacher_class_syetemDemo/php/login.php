@@ -2,8 +2,10 @@
 require dirname(__DIR__).'/lib/functions.php';
 session_start();
 $name = $_POST["login-user"];
+$name = trim($name);
 $_SESSION["temp"][0]=$name;
 $pwd = $_POST["login-password"];
+$pwd = trim($pwd);
 $idf = $_POST["ident"];
 $jud=0;
 echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
