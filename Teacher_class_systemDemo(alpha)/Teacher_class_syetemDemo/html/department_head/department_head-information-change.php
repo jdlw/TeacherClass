@@ -278,10 +278,11 @@
                 </br> </br>
                
                </div>
+               <input type="submit" id="change_submit" class=" btn-success btn-submit"  value="确认修改" />
                </form>
-                  <input type="submit" id="change_submit" class=" btn-success btn-submit"  value="确认修改" />
+                  
             </div>
-          <div>
+          </div>
     </div>
  </div>
   <div id ="footer">

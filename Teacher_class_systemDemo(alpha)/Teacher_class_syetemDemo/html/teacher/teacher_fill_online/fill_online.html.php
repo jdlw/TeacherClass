@@ -181,7 +181,7 @@
                 
            
           </table>
-           <input type="table" class="btn-table" value="提交表格">
+           <input type="submit" class="btn-table" value="提交表格">
              </form>    
             <div>
         </div>
