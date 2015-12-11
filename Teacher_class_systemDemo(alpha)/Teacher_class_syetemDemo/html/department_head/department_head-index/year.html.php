@@ -128,30 +128,34 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       //$year=date("Y");
-                      $sql="SELECT DISTINCT year,semester FROM task_info ORDER BY year DESC,semester DESC";
+                      $sql="SELECT DISTINCT year,semester FROM task_info ORDER BY year DESC,semester DESC";//查询表格所有年份学期
                       $result=mysql_query($sql);
-                      while($row=mysql_fetch_array($result))
-                      {
-                        $sql1="SELECT major FROM department_head_majors WHERE workNumber='$workNumber'";
-                        $result1=mysql_query($sql1);
-                        $row1=mysql_fetch_array($result1);
-                        $sql2="SELECT relativeTable FROM task_info WHERE  relativeTable  LIKE '%$row1[major]%' AND year = $row[year] AND semester = $row[semester]";
-                        $result2=mysql_query($sql2);   
-                        
-                        while($row2=mysql_fetch_array($result2))
+                      if(!empty($result)){
+                        while($row=mysql_fetch_array($result))//对于每条年份学期记录
                         {
-                          if(strstr($row2["relativeTable"],$row1["major"]))
-                          {
-                             echo'<li class="list-group-item">
-                          <span class="table_name">'.$row['year'].'年'.$row['semester'].'学期'.'</span>'
-                           .'<span class="table_download">
-                          <a class="list-group-item-a" href="index.php?year='.$row['year'].'&semester='.$row['semester'].'">'.'点击查看</a></sapn>';
+                          $sql1="SELECT major FROM department_head_majors WHERE workNumber='$workNumber'";//查找职工号对应的专业
+                          $result1 = mysql_query($sql1);
+                          if(!empty($result1)){
+                               while( $row1=mysql_fetch_array($result1)){
+
+                                //查询当年当学期里，表名包含该负责人所负责的该专业的所有表名
+                                $sql2="SELECT relativeTable FROM task_info WHERE  relativeTable  LIKE '%$row1[major]%' AND year = $row[year] AND semester = $row[semester]";
+                               
+                                $result2=mysql_query($sql2); 
+                                if(mysql_num_rows($result2)>0)  
+                                  {
+                                         echo'<li class="list-group-item">
+                                      <span class="table_name">'.$row['year'].'年'.$row['semester'].'学期'.'</span>'
+                                       .'<span class="table_download">
+                                      <a class="list-group-item-a" href="index.php?year='.$row['year'].'&semester='.$row['semester'].'">'.'点击查看</a></sapn>';  
+                                      break;
+                                  }
+                                  
+                                 
+                              }
                          }
                         }
                       }
-                        
-
-                     
                       //echo $year;
                   }
               ?>
