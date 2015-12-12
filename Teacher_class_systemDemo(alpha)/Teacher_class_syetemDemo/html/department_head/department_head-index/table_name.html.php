@@ -91,8 +91,11 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
+                      if(mysql_num_rows($result)>0)
+                      {
                       $row = mysql_fetch_array($result);          
                       $GLOBALS['name']=$row['name'];
+                      }
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
@@ -133,10 +136,14 @@
                       //$year=date("Y");
                       $sql1="SELECT major FROM department_head_majors WHERE workNumber='$workNumber'";
                       $result1=mysql_query($sql1);
+                    if(mysql_num_rows($result1)>0)
+                    {
                       while($row1=mysql_fetch_array($result1))
                       {
                         $sql="SELECT relativeTable FROM task_info WHERE year='$year' AND semester = '$semester' AND relativeTable like '%$row1[major]%' ";
                         $result=mysql_query($sql);
+                       if(mysql_num_rows($result)>0)
+                       {
                         while($row=mysql_fetch_array($result))
                         {
                             switch ($row['relativeTable']) {
@@ -174,8 +181,9 @@
                             <a class="list-group-item-a" href="index.php?table_name='.$row['relativeTable'].'&year='.$year.'">'.'点击查看</a></sapn>';
                             
                         }
-                        //echo $year;
+                      }//echo $year;
                     }
+                   }
                   }
               ?>
             <div>

@@ -177,8 +177,11 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
-                      $row = mysql_fetch_array($result);
-                      $GLOBALS['name']=$row['name'];
+                      if(mysql_num_rows($result)>0)
+                      {
+                        $row = mysql_fetch_array($result);
+                        $GLOBALS['name']=$row['name'];
+                      }
                   }
             ?>
             <a class="a_exit" href="../index.php">退出系统</a>
@@ -225,13 +228,16 @@
                       mysql_select_db("teacher_class_system", $con);
                        mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_teacher");
-                      while($row = mysql_fetch_array($result))
+                      if(mysql_num_rows($result)>0)
+                      {
+                         while($row = mysql_fetch_array($result))
                             {
                               echo"<tr><td>".$row['workNumber']."</td>";
                               echo"<td>".$row['name']."</td>";
                               echo"<td>".$row['password']."</td>";
                               echo"</td></tr>";
                             }
+                      }
                   }  
                 ?>
                 <tr>

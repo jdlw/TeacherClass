@@ -124,8 +124,11 @@ $.editable.addInputType('datepicker', {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
-                      $row = mysql_fetch_array($result);          
-                      $GLOBALS['name']=$row['name'];
+                      if(mysql_num_rows($result)>0)
+                      {
+                        $row = mysql_fetch_array($result);          
+                        $GLOBALS['name']=$row['name'];
+                      }
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
@@ -166,12 +169,16 @@ $.editable.addInputType('datepicker', {
                       //$year=date("Y");
                       $sql="SELECT taskState FROM task_info WHERE relativeTable='$table_name'";
                       $result = mysql_query($sql);
-                      $row = mysql_fetch_array($result);
-                      $table_name = 'cb_'.$table_name;
-                      $_SESSION["table_name"][0]= $table_name;
+                      if(mysql_num_rows($result)>0)
+                      {
+                        $row = mysql_fetch_array($result);
+                        $table_name = 'cb_'.$table_name;
+                        $_SESSION["table_name"][0]= $table_name;
+                      }
                       $sql = "SELECT * FROM $table_name";
                       $result = mysql_query($sql);
-                    
+                      if(mysql_num_rows($result)>0)
+                      {
                           while($row = mysql_fetch_array($result))
                           {
 
@@ -191,6 +198,7 @@ $.editable.addInputType('datepicker', {
                               echo"</td></tr>";
                             
                           }
+                      }
                       
                       
                       

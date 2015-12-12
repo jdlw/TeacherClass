@@ -91,8 +91,11 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_teacher where workNumber=$work_number");
-                      $row = mysql_fetch_array($result);          
-                      $GLOBALS['name']=$row['name'];
+                      if(mysql_num_rows($result)>0)
+                      {
+                        $row = mysql_fetch_array($result);          
+                        $GLOBALS['name']=$row['name'];
+                      }
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
@@ -126,12 +129,17 @@
                  echo"<input type='hidden' name='table_name' value='".$table_name."'>";
                  //$row_begin = 100;
                  $result = mysql_query("SELECT * FROM $table_name where teacherName = '' or  teacherName ='任课教师'");
-                 while($row = mysql_fetch_array($result))
+                 if(mysql_num_rows($result)>0)
+                 {
+                    while($row = mysql_fetch_array($result))
 
-                 echo "<input type='hidden' name='table_name' value='".$table_name."'>";
+                    echo "<input type='hidden' name='table_name' value='".$table_name."'>";
+                 }
                  $row_begin = -1;
                  $result = mysql_query("SELECT * FROM $table_name where teacherName = '' or  teacherName ='任课教师'");
-                 while($row = mysql_fetch_assoc($result))
+                 if(mysql_num_rows($result)>0)
+                 {
+                    while($row = mysql_fetch_assoc($result))
 
                       {
                         if(empty($row['grade']) && empty($row["major"])){
@@ -177,6 +185,7 @@
                         echo '</tr>';
                           
                       }
+                    }
                  ?>
                 
            
