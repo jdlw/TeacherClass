@@ -40,8 +40,9 @@
 				$result=mysql_query($sql);
 			if($result){
 			   echo $val;
+
 			}else{
-			   echo "数据出错".$sql;	
+			    echo "数据错误";	
 			}
 }
      }
