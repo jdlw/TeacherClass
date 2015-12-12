@@ -103,7 +103,6 @@
             </span>老师</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="teacher_table_overview">回到首页</a>
 
             <div id="refer-to-change">
               <a class="btn-recover" href="teacher-information-change.php">修改信息</a>

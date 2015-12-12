@@ -103,7 +103,6 @@
             </span>教学办</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="teaching_office-index.php">回到首页</a>
           
           </div>
         </div>
@@ -125,12 +124,43 @@
                <input type="file" name="testFile" >
                </br> </br> </br> 
        
-               <button  type="submit" class="btn btn-success ">教师账号导入</button>
+               <button  type="initial" class="btn-initial ">教师账号导入</button>
           </form>
+          <table class="table_gen" border="1" id="st-info-m">
+              <tbody>
+                <tr>
+                <th>职工号</th>
+                <th>姓名</th>
+                <th>密码</th>
+                </tr>
+                 <?php 
+                  header("Content-type: text/html; charset:utf-8");                 
+                   $con = mysql_connect("localhost","root","");
+                   if (!$con)
+                  {
+                         die('Could not connect: ' . mysql_error());
+                  }
+                  else
+                  {
+                      mysql_select_db("teacher_class_system", $con);
+                       mysql_query("SET NAMES UTF8");
+                      $result = mysql_query("SELECT * FROM user_teacher");
+                      while($row = mysql_fetch_array($result))
+                            {
+                              echo"<tr><td>".$row['workNumber']."</td>";
+                              echo"<td>".$row['name']."</td>";
+                              echo"<td>".$row['password']."</td>";
+                              echo"</td></tr>";
+                            }
+                  }  
+                ?>
+                <tr>
+
+                </tr>
+                <tbody>
+            </table>
         </div>
-         
-            <div>
-        </div>
+        
  </div>
   <div id ="footer">
     <p>2015@stc system by Mr.Linlin ma</p>

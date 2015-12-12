@@ -103,7 +103,6 @@
             </span>老师</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="../teacher_table_overview.php">回到首页</a>
           </div>
         </div>
         <div id="main-content">

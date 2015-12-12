@@ -228,9 +228,8 @@
             </span>系负责人</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="department_head-index">回到首页</a>
+            
             <div id="refer-to-change">
-              <a class="btn-recover" href="department_head-information.php">返回</a>
             </div>
           </div>
 
@@ -278,11 +277,12 @@
                  <input type="checkbox" name="major[]" value="tc_inf_sec" />信息安全专业
                 </br> </br>
                
-                  <input type="submit" id="change_submit" class=" btn-success btn-submit"  value="确认修改" />
                </div>
+               <input type="submit" id="change_submit" class=" btn-success btn-submit"  value="确认修改" />
                </form>
+                  
             </div>
-          <div>
+          </div>
     </div>
  </div>
   <div id ="footer">

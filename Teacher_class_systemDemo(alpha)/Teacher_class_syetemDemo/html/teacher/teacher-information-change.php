@@ -228,9 +228,7 @@
             </span>老师</p>
           </div>
           <div id="status2">
-            <a class="a_success" title="Go to Home" href="teacher_table_overview">回到首页</a>
             <div id="refer-to-change">
-              <a class="btn-recover" href="teacher-information.php">返回</a>
             </div>
           </div>
 
@@ -259,7 +257,7 @@
                 <input placeholder="确认密码:"  class="re-input" type="password"   name="repassword" /> <span class='state1'>请确认密码</span>
                 </br> 
 
-                  <input type="submit" id="change_submit" class=" btn-success btn-submit"  value="确认修改" />
+                  <input type="success" id="change_submit" class="btn btn-success"  value="确认修改" />
                </form>
             </div>
           <div>

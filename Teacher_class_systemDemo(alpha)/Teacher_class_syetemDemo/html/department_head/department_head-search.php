@@ -90,7 +90,7 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_teaching_office where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
                       $row = mysql_fetch_array($result);
                       $GLOBALS['name']=$row['name'];
                   }
@@ -100,72 +100,52 @@
               <?php  
                echo $name;
                    ?> 
-            </span>教学办</p>
+            </span>系负责人</p>
           </div>
           <div id="status2">
-
-            <div id="refer-to-change">
-              <a class="btn-recover" href="teaching_office-information-change.php">修改信息</a>
-            </div>
+          
           </div>
         </div>
         <div id="main-content">
           <div id="sider">
             <ul>
-               <li><a class="a_sider" href="teaching_office-index.php"  >上传表格</a></li>
-              <li><a class="a_sider" href="teaching_office_table_overview">报课情况</a></li>  
-              <li><a class="a_sider" href="teaching_office_manager-teacher.php">管理教师</a></li>
-              <li class="now_li"><a class="a_sider a_now" href="teaching_office-information.php">个人信息</a></li>
+               <li class="now_li"><a class="a_sider a_now" href="../department_head-search">报课情况</a></li>  
+              <li><a class="a_sider" href="../department_head_manager-teacher.php">管理教师</a></li>
+              <li><a class="a_sider" href="../department_head-information.php">个人信息</a></li>
             </ul>
           </div>
           <div id="right-text">
+          <div class="table_input_area">
+           <form  method="post"  action="../../php/file_input.php"   enctype="multipart/form-data">
+            <div class="term_select">
+            <label>选择年份</label>
+              <select name ="year">
+                <option value ="2014">2014</option>
+                <option value ="2015">2015</option>
+                <option value ="2016">2016</option>
+                <option value ="2017">2017</option>
+              </select>
 
-            <table class="table_gen" border="1">
-              <tbody>
-                <tr>
-                <th>工号</th>
-                <th>密码</th>
-                <th>姓名</th>
-                <th>电话</th>
-                <th>邮箱</th>
-               
-                </tr>
-                <?php 
-                  header("Content-type: text/html; charset:utf-8");                 
-                   $con = mysql_connect("localhost","root","");
-                   if (!$con)
-                  {
-                         die('Could not connect: ' . mysql_error());
-                  }
-                  else
-                  {
-                      mysql_select_db("teacher_class_system", $con);
-                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_teaching_office");
-                      while($row = mysql_fetch_array($result))
-                            {
-                              if( $workNumber==$row['workNumber'])
-                              {
-                                echo"<tr><td>".$row['workNumber'];
-                                echo"<td>".$row['password']."</td>";
-                                echo"<td>".$row['name']."</td>";
-                                echo"<td>".$row['telephone']."</td>";
-                                echo"<td>".$row['email']."</td>";
-                              }
-                              /*
-                               echo"<td>";
-                              echo "<input type='submit' class='btn-recover' value = '取消该门课'>";
-                              echo"</td>";
-                              */
-                              echo"</td></tr>";
-                            }
-                  }  
-                ?>
-              
-                <tr>
-                </tr>
-                <tbody>
-            </table>
+              <label>选择学期</label>
+               <select name ="semester">
+                <option value ="01">01</option>
+                <option value ="02">02</option>
+                <option value ="03">03</option>
+                <option value ="04">04</option>
+                <option value ="05">05</option>
+              </select>
+
+               </div>
+            </br>
+            <div class="date_select">
+            <label>教师姓名<label>
+              <input type="text" name="teacherDeadline"  placeholder="格式:20140101" >
+
+
+               <button  type="initial" class="btn-initial ">查找</button>
+          </form>
+        </div>
+         
             <div>
         </div>
  </div>
