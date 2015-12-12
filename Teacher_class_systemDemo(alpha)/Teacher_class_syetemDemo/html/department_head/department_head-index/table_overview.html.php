@@ -15,7 +15,7 @@
   <script type="text/javascript">
 $(function(){
    $('.edit').editable('../../../php/save.php', { 
-     width     :80,
+     width     :400,
      height    :18,
      //onblur    : "ignore",
          cancel    : '取消',
@@ -186,7 +186,8 @@ $.editable.addInputType('datepicker', {
                               echo"<td>".$row['onMachineHour']."</td>";
                               echo"<td>".$row['timePeriod']."</td>";
                               echo"<td class='edit' id='".$row['insertTime']."#"."teacherName'>".$row['teacherName']."</td>";
-                              echo"<td>".$row['remark']."</td>";
+                              echo"<td class='edit' id='".$row['insertTime']."#"."remark'>".$row['remark']."</td>";
+                              //echo"<td>".$row['remark']."</td>";
                               echo"</td></tr>";
                             
                           }
