@@ -129,7 +129,7 @@ $.editable.addInputType('datepicker', {
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
-            <p>欢迎您，<span>
+            <p class="to_remind">欢迎您，<span>
               <?php
                echo $name;
                    ?> 
