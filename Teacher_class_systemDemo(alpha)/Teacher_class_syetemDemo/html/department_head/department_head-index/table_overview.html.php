@@ -9,6 +9,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
   <title>教师报课管理系统</title>
   <script type="text/javascript" src="../../../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/jquery.jeditable.mini.js"></script>
+  <script type='text/javascript' src='../../../js/jquery-ui.min.js'></script>
+  <script type="text/javascript">
+$(function(){
+   $('.edit').editable('../../../php/save.php', { 
+     width     :400,
+     height    :18,
+     //onblur    : "ignore",
+         cancel    : '取消',
+         submit    : '确定',
+         
+         tooltip   : '单击可以编辑...',
+     callback  : function(value, settings) {
+       $("#modifiedtime").html("刚刚");
+         }
+
+     });
+});
+//调用jquery ui的datepicker日历插件
+$.editable.addInputType('datepicker', {
+    element : function(settings, original) {
+        var input = $('<input class="input" />');
+    input.attr("readonly","readonly");
+        $(this).append(input);
+        return(input);
+    },
+    plugin : function(settings, original) {
+    var form = this;
+    $("input",this).datepicker();
+    }
+});
+</script>
    <script type="text/javascript">
     jQuery.fn.rowspan = function(colIdx) { //封装的一个JQuery小插件
     return this.each(function(){
@@ -126,6 +159,8 @@
                   {
                       $year = $_GET["year"];
                       $table_name = $_GET["table_name"];
+                     // session_start();
+                      
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       //$year=date("Y");
@@ -133,8 +168,10 @@
                       $result = mysql_query($sql);
                       $row = mysql_fetch_array($result);
                       $table_name = 'cb_'.$table_name;
+                      $_SESSION["table_name"][0]= $table_name;
                       $sql = "SELECT * FROM $table_name";
                       $result = mysql_query($sql);
+                    
                           while($row = mysql_fetch_array($result))
                           {
 
@@ -148,59 +185,13 @@
                               echo"<td>".$row['practiceHour']."</td>";
                               echo"<td>".$row['onMachineHour']."</td>";
                               echo"<td>".$row['timePeriod']."</td>";
-                              echo"<td>".$row['teacherName']."</td>";
-                              echo"<td>".$row['remark']."</td>";
+                              echo"<td class='edit' id='".$row['insertTime']."#"."teacherName'>".$row['teacherName']."</td>";
+                              echo"<td class='edit' id='".$row['insertTime']."#"."remark'>".$row['remark']."</td>";
+                              //echo"<td>".$row['remark']."</td>";
                               echo"</td></tr>";
                             
                           }
-                      // }
-                      // else
-                      // {
-                      //     //否则，查看自己填写的报课情况,在此要先输出表格的头部
-                      //     //$table_name = 'cb_'.$table_name;
-                      //     //echo $table_name;
-                      //     $sql = "SELECT * FROM $table_name WHERE major=''or major='专业'";
-                      //     $result = mysql_query($sql);
-                      //     while($row = mysql_fetch_array($result))
-                      //     {
-                      //       echo"<tr><td>".$row['grade'];     
-                      //         echo"<td>".$row['major']."</td>";
-                      //         echo"<td>".$row['people']."</td>";
-                      //         echo"<td>".$row['courseName']."</td>";
-                      //         echo"<td>".$row['courseType']."</td>";
-                      //         echo"<td>".$row['courseCredit']."</td>";
-                      //         echo"<td>".$row['courseHour']."</td>";
-                      //         echo"<td>".$row['practiceHour']."</td>";
-                      //         echo"<td>".$row['onMachineHour']."</td>";
-                      //         echo"<td>".$row['timePeriod']."</td>";
-                      //         echo"<td>".$row['teacherName']."</td>";
-                      //         echo"<td>".$row['remark']."</td>";
-                      //         echo"</td></tr>";
-                      //     }
-                      //     //echo $workNumber;
-                      //     $sql = "SELECT * FROM $table_name WHERE workNumber='$workNumber'";
-                      //     $result = mysql_query($sql);
-                      //     while($row = mysql_fetch_array($result))
-                      //     {
-
-                      //         echo"<tr><td>".$row['grade'];     
-                      //         echo"<td>".$row['major']."</td>";
-                      //         echo"<td>".$row['people']."</td>";
-                      //         echo"<td>".$row['courseName']."</td>";
-                      //         echo"<td>".$row['courseType']."</td>";
-                      //         echo"<td>".$row['courseCredit']."</td>";
-                      //         echo"<td>".$row['courseHour']."</td>";
-                      //         echo"<td>".$row['practiceHour']."</td>";
-                      //         echo"<td>".$row['onMachineHour']."</td>";
-                      //         echo"<td>".$row['timePeriod']."</td>";
-                      //         echo"<td>".$row['teacherName']."</td>";
-                      //         echo"<td>".$row['remark']."</td>";
-                      //         echo"</td></tr>";
-                            
-                      //     }
-                      //     //echo $sql;
-                      //     //echo ;
-                      // }
+                      
                       
                       
                   }

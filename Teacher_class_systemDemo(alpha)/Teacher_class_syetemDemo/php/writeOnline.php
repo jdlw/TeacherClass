@@ -37,11 +37,11 @@
          $teacherName=$row["name"];
 
         //将教师姓名插入不分行表格
-         $sql="UPDATE $cb_table_name SET teacherName = concat(teacherName,'$teacherName',';') where insertTime=$class_select[$i]";
+         $sql="UPDATE $cb_table_name SET teacherName = concat(teacherName,'$teacherName','；') where insertTime=$class_select[$i]";
          mysql_query($sql);
 
          //将备注插入不分行表格对应的行
-         $sql="UPDATE $cb_table_name SET remark = concat(remark,'$remark[$i]',';') where insertTime=$class_select[$i]";
+         $sql="UPDATE $cb_table_name SET remark = concat(remark,'$remark[$i]','；') where insertTime=$class_select[$i]";
          mysql_query($sql);
          //echo $remark[$i];
          
