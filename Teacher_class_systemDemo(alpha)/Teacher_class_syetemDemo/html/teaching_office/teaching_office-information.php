@@ -174,7 +174,7 @@
         </div>
  </div>
   <div id ="footer">
-    <p>Dsigned By Code.R</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>

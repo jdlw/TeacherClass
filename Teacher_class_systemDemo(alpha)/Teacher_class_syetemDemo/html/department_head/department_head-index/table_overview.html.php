@@ -233,7 +233,7 @@ $.editable.addInputType('datepicker', {
         </div>
  </div>
   <div id ="footer">
-    <p>2015@stc system by Mr.Linlin ma</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>
