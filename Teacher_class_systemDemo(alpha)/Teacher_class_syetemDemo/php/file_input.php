@@ -30,7 +30,7 @@ header("Content-type: text/html; charset=utf-8");
       $db_name="teacher_class_system";                                           //连接的数据库名称
       $db=new mysqli($db_host,$db_user,$db_psw,$db_name);
       //检查连接是否成功
-      if (mysqli_connect_errno()){
+      if (mysqli_connect_errno($db)){
           //注意mysqli_connect_error()新特性
         die('Unable to connect!'). mysqli_connect_error();
       }
@@ -71,7 +71,23 @@ header("Content-type: text/html; charset=utf-8");
             window.location.href='../html/teaching_office/teaching_office-index.php'</script>";
        }else{
            
-          //创建非cb表
+        
+        $sql = "SELECT * FROM task_info WHERE relativeTable = '$tableName1'";
+        $result1 = mysqli_query($db,$sql);
+        
+
+        if(mysqli_num_rows($result1)>0){  //查询表中有多少行  对于存在的课表进行覆盖处理
+        echo "该课表已存在，覆盖成功";
+        $sql="delete from task_info where relativeTable=$tableName1";
+        $db->query($sql);
+        mysqli_query($db,"drop table $tableName1");
+        mysqli_query($db,"drop table $tableName2");
+        
+        //echo "<script>alert("该表已存在，成功覆盖");
+        //       window.location.href='../html/teaching_office/teaching_office-index.php'</script>;</script>";
+
+        }
+        //创建非cb表
         $sql = "CREATE TABLE IF NOT EXISTS $tableName1 (
           `insertTime` int(10) NOT NULL,
           `workNumber` varchar(40)  COLLATE utf8_unicode_ci,
