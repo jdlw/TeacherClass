@@ -100,11 +100,12 @@
                   }
             ?>
             <a class="a_exit" href="../index.php">退出系统</a>
-            <p>欢迎您，<span>
+            <p class="to_remind">欢迎您，<span>
               <?php  
                echo $name;
                    ?> 
             </span>教学办</p>
+          <p class="remind">提示:“同一年份、同一学期、同专业“的报课表只能有一份，重复上传会覆盖原课表！若原报课表已有教师报课，将丢失数据！</p>
           </div>
           <div id="status2">
           
@@ -184,7 +185,7 @@
         </div>
  </div>
   <div id ="footer">
-    <p>Dsigned By Code.R</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>
