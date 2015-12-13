@@ -22,7 +22,7 @@ header("Content-type: text/html; charset=utf-8");
       $result=move_uploaded_file($_FILES['testFile']['tmp_name'],$dir.$filename);//假如上传到当前目录下
 
       //判断上传文件的文件名
-      
+      $judge_cover=0;
      
       $db_host="localhost";                                           //连接的服务器地址
       $db_user="root";                                                //连接数据库的用户名
@@ -77,7 +77,7 @@ header("Content-type: text/html; charset=utf-8");
         
 
         if(mysqli_num_rows($result1)>0){  //查询表中有多少行  对于存在的课表进行覆盖处理
-        echo "该课表已存在，覆盖成功";
+        $judge_cover = 1;
         $sql="delete from task_info where relativeTable=$tableName1";
         $db->query($sql);
         mysqli_query($db,"drop table $tableName1");
@@ -182,8 +182,14 @@ header("Content-type: text/html; charset=utf-8");
        //echo($totalNums);//导入的数据量
        unlink("$filename");  //删除上传的excel文件
        echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
-       echo"
+       if($judge_cover==0) 
+        echo"
             <script>alert('上传成功！');
+            window.location.href='../html/teaching_office/teaching_office-index.php'</script>";
+          
+       else
+         echo"
+            <script>alert('该课表已存在，覆盖成功！');
             window.location.href='../html/teaching_office/teaching_office-index.php'</script>";
       }
       }

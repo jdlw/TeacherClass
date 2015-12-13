@@ -82,6 +82,7 @@
                  $workNumber = $_SESSION["temp"][0];
                  header("Content-type: text/html; charset:utf-8");                 
                    $con = mysql_connect("localhost","root","");
+                   $currentyear= date('Y',time());
                    if (!$con)
                   {
                          die('Could not connect: ' . mysql_error());
@@ -124,12 +125,19 @@
             <div class="term_select">
             <label>选择年份</label>
               <select name ="year">
-                <option value ="2014">2014</option>
-                <option value ="2015">2015</option>
-                <option value ="2016">2016</option>
-                <option value ="2017">2017</option>
+                <?php
+                echo'
+                <option value ="'.$currentyear.'">'.$currentyear.'</option>';
+                $currentyear++;
+                 echo'
+                <option value ="'.$currentyear.'">'.$currentyear.'</option>';
+                $currentyear++;
+                  echo'
+                <option value ="'.$currentyear.'">'.$currentyear.'</option>';
+                ?>
               </select>
-
+             
+                
               <label>选择学期</label>
                <select name ="semester">
                 <option value ="01">01</option>

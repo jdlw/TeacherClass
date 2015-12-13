@@ -136,7 +136,7 @@ $.editable.addInputType('datepicker', {
               <?php
                echo $name;
                    ?> 
-            </span>教学办</p>
+            </span>系负责人</p>
              <p class='remind'>提示：普通教师报课截止日期过后，任课教师列和备注列可点击修改。</p>
             </div>
         </div>
