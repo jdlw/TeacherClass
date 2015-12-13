@@ -122,7 +122,7 @@
           </div>
           <div id="right-text">
 
-            <table class="table_gen" border="1">
+            <table class="table_gen_wid" border="1">
               <tbody>
                 <tr>
                 <th>工号</th>
