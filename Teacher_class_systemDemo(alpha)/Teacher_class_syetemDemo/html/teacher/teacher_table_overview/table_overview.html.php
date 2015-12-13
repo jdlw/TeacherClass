@@ -91,8 +91,11 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_teacher where workNumber=$work_number");
-                      $row = mysql_fetch_array($result);          
-                      $GLOBALS['name']=$row['name'];
+                      if(mysql_num_rows($result)>0)
+                      {
+                        $row = mysql_fetch_array($result);          
+                        $GLOBALS['name']=$row['name'];
+                      }
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
@@ -134,6 +137,7 @@
                       //判断表格状态以选择显示分行表还是不分行表
                       $sql="SELECT taskState FROM task_info WHERE relativeTable='$table_name'";
                       $result = mysql_query($sql);
+                      if(mysql_num_rows($result)>0)
                       $row = mysql_fetch_array($result);
                       //echo $row[0];
                       if($row[0]==2)
@@ -144,6 +148,7 @@
                           //echo $table_name;
                           $sql = "SELECT * FROM $table_name";
                           $result = mysql_query($sql);
+                          if(mysql_num_rows($result)>0)
                           while($row = mysql_fetch_array($result))
                           {
 
@@ -169,6 +174,7 @@
                           //否则，说明表格还没公示，显示填报记录，但是要先判断填报记录是否为0
                           $sql = "SELECT count(*) FROM $table_name WHERE workNumber='$work_number'";
                           $result = mysql_query($sql);
+                          if(mysql_num_rows($result)>0)
                           $row = mysql_fetch_array($result);
                           if($row[0]==0)
                           {
@@ -178,6 +184,7 @@
                             echo"<p class='completed-warning'>该表暂未公示,您的填报记录为：</p>";
                             $sql = "SELECT * FROM $table_name WHERE major=''or major='专业'";
                             $result = mysql_query($sql);
+                            if(mysql_num_rows($result)>0)
                             while($row = mysql_fetch_array($result))
                             {
                               echo"<tr><td>".$row['grade'];     
@@ -197,6 +204,7 @@
                             //echo $work_number;
                             $sql = "SELECT * FROM $table_name WHERE workNumber='$work_number'";
                             $result = mysql_query($sql);
+                            if(mysql_num_rows($result)>0)
                             while($row = mysql_fetch_array($result))
                             {
 

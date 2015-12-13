@@ -91,8 +91,11 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_teaching_office where workNumber=$workNumber");
-                      $row = mysql_fetch_array($result);          
-                      $GLOBALS['name']=$row['name'];
+                      if(mysql_num_rows($result)>0)
+                      {
+                        $row = mysql_fetch_array($result);          
+                        $GLOBALS['name']=$row['name'];
+                      }
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
@@ -131,6 +134,7 @@
                       //$year=date("Y");
                       $sql="SELECT DISTINCT year,semester FROM task_info WHERE taskState>1 ORDER BY year DESC,semester DESC";
                       $result=mysql_query($sql);
+                      if(mysql_num_rows($result)>0)
                       while($row=mysql_fetch_array($result))
                       {
                        echo'<li class="list-group-item">
