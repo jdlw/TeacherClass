@@ -33,8 +33,11 @@
         //echo $class_select[$i].'</br>';
          //获取教师姓名
          $result=mysql_query("SELECT name FROM user_teacher WHERE workNumber='$workNumber'");
-         $row=mysql_fetch_array($result);
-         $teacherName=$row["name"];
+         if(mysql_num_rows($result)>0)
+         {
+            $row=mysql_fetch_array($result);
+            $teacherName=$row["name"];
+         }
 
         //将教师姓名插入不分行表格
          $sql="UPDATE $cb_table_name SET teacherName = concat(teacherName,'$teacherName','；') where insertTime=$class_select[$i]";

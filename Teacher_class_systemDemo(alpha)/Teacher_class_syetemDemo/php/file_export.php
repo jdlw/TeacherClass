@@ -47,6 +47,7 @@
     //表格数组
     $con = get_db();
     $result = mysql_query("SELECT grade,major,people,courseName,courseType,courseCredit,courseHour,practiceHour,onMachineHour,timePeriod,teacherName,remark FROM $table_name");
+    if(mysql_num_rows($result)>0)
     while($row = mysql_fetch_row($result)){$data[] = $row;}
     
     for ($i =1;$i <=count($data);$i++) {

@@ -91,8 +91,11 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_teacher where workNumber=$work_number");
+                      if(mysql_num_rows($result)>0)
+                      {
                       $row = mysql_fetch_array($result);          
                       $GLOBALS['name']=$row['name'];
+                      }
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
@@ -132,6 +135,8 @@
                       //$year=date("Y");
                       $sql="SELECT relativeTable FROM task_info WHERE year='$year' AND semester = '$semester'";
                       $result=mysql_query($sql);
+                    if(mysql_num_rows($result)>0)
+                    {
                       while($row=mysql_fetch_array($result))
                       {
                           switch ($row['relativeTable']) {
@@ -170,6 +175,7 @@
                           
                       }
                       //echo $year;
+                   }
                   }
               ?>
             <div>

@@ -91,8 +91,11 @@
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
                       $result = mysql_query("SELECT * FROM user_teacher where workNumber=$work_number");
-                      $row = mysql_fetch_array($result);          
-                      $GLOBALS['name']=$row['name'];
+                      if(mysql_num_rows($result)>0)
+                      {
+                         $row = mysql_fetch_array($result);          
+                         $GLOBALS['name']=$row['name'];
+                      }
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
@@ -132,6 +135,7 @@
                       $sql="SELECT relativeTable,taskState FROM task_info WHERE year='$year'AND taskState=0";
                       $result=mysql_query($sql);
                       $count=0;
+                      if(mysql_num_rows($result)>0)
                       while($row=mysql_fetch_array($result))
                       {
                           $count++;
@@ -207,7 +211,6 @@
                             echo "暂无今年报课表";
                           }
                       }
-                      //echo $year;
                   }
               ?>
             <div>
