@@ -91,8 +91,11 @@
               mysql_select_db("teacher_class_system", $con);
               mysql_query("SET NAMES UTF8");
               $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
-              $row = mysql_fetch_array($result);
-              $GLOBALS['name']=$row['name'];
+              if(mysql_num_rows($result)>0)
+              {
+                 $row = mysql_fetch_array($result);
+                 $GLOBALS['name']=$row['name'];
+              }
             }
             ?>
             <a class="a_exit" href="../index.php">退出系统</a>
@@ -143,18 +146,21 @@
                 mysql_select_db("teacher_class_system", $con);
                 mysql_query("SET NAMES UTF8");
                 $result = mysql_query("SELECT * FROM user_department_head WHERE `workNumber`='{$workNumber}'");
-                while($row = mysql_fetch_array($result))
+                if(mysql_num_rows($result)>0)
                 {
+                   while($row = mysql_fetch_array($result))
+                   {
 
-                  echo"<tr><td>".$row['workNumber'];
-                  echo"<td>".$row['password']."</td>";
-                  echo"<td>".$row['name']."</td>";
-                  echo"<td>".$row['sex']."</td>";
-                  echo"<td>".$row['birthday']."</td>";
-                  echo"<td>".$row['department']."</td>";
-                  echo"<td>".$row['telephone']."</td>";
-                  echo"<td>".$row['email']."</td>";
-                  echo"</td></tr>";
+                      echo"<tr><td>".$row['workNumber'];
+                      echo"<td>".$row['password']."</td>";
+                      echo"<td>".$row['name']."</td>";
+                      echo"<td>".$row['sex']."</td>";
+                      echo"<td>".$row['birthday']."</td>";
+                      echo"<td>".$row['department']."</td>";
+                      echo"<td>".$row['telephone']."</td>";
+                      echo"<td>".$row['email']."</td>";
+                      echo"</td></tr>";
+                    }
                 }
               }  
               ?>
@@ -176,8 +182,10 @@
                     mysql_select_db("teacher_class_system", $con);
                     mysql_query("SET NAMES UTF8");
                     $result = mysql_query("SELECT * FROM department_head_majors WHERE `workNumber`='{$workNumber}'");
-                    while($row = mysql_fetch_array($result))
+                    if(mysql_num_rows($result)>0)
                     {
+                      while($row = mysql_fetch_array($result))
+                      {
                        switch ($row['major']) {
                         case 'tc_com_exc':
                           $major_name='计算机卓越班';
@@ -206,8 +214,10 @@
                         default:
                           $major_name = $row['major'];
                           break;
+
                       }
                       echo"<td>".$major_name."</td>";
+                    }
                   }
                 }  
                 ?>

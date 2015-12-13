@@ -13,6 +13,7 @@ $con = get_db();
 if($idf=="teacher")//教师类型身份验证
 {
 	$result = mysql_query("SELECT * FROM user_teacher");
+	if(mysql_num_rows($result)>0)
 	while($row = mysql_fetch_array($result))
 	{
 		if($row['workNumber']== $name&&$row['password']== $pwd)
@@ -32,6 +33,7 @@ if($idf=="teacher")//教师类型身份验证
 if($idf=="department_head")//系负责人类型身份验证
 {
 	$result = mysql_query("SELECT * FROM user_department_head");
+	if(mysql_num_rows($result)>0)
 	while($row = mysql_fetch_array($result))
 	{
 		if($row['workNumber']== $name&&$row['password']== $pwd)
@@ -51,6 +53,7 @@ if($idf=="department_head")//系负责人类型身份验证
 if($idf=="teaching_office")//教学办类型身份验证
 {
 	$result = mysql_query("SELECT * FROM user_teaching_office");
+	if(mysql_num_rows($result)>0)
 	while($row = mysql_fetch_array($result))
 	{
 		if($row['workNumber']== $name&&$row['password']== $pwd)
