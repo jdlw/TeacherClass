@@ -260,7 +260,7 @@
                 <input placeholder="确认密码:"  class="re-input" type="password"   name="repassword" /> <span class='state1'>请确认密码</span>
                 </br> 
 
-                  <input type="success" id="change_submit" class="btn btn-success"  value="确认修改" />
+                  <input type="submit" id="change_submit" class="btn btn-success"  value="确认修改" />
                </form>
             </div>
           <div>

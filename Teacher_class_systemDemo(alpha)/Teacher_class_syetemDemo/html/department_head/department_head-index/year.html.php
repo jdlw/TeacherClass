@@ -99,13 +99,14 @@
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
-            <p>欢迎您，<span>
+            <p class="to_remind">欢迎您，<span>
               <?php  
                echo $name;
                    ?> 
             </span>系负责人</p>
+          <div >
+            <p class="remind">提示：单击＜个人信息＞右上角的＜修改信息＞，更改自己负责的专业后，可在此查看对应专业报课信息。</p>
           </div>
-          <div id="status2">
           </div>
         </div>
         <div id="main-content">

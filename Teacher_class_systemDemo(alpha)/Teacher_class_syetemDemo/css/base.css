@@ -27,8 +27,8 @@ h3{ text-align: center;}
 				height: 40px;
 				border-top: solid 1px #7c7c7c  ;
 			}
-.btn-recover{border: none; background: #2f96b4;margin-top: 10px; margin-left: 20%; height:20px;width:70px;text-align: center;font-family: "微软雅黑";color: #fff;}
-.btn-recover:hover{background: #2887a3;}
+.btn-recover{border: none; background: #57ae57;margin-top: 10px; margin-left: 20%; height:20px;width:70px;text-align: center;font-family: "微软雅黑";color: #fff;}
+.btn-recover:hover{background: #468e46;}
 .btn-submit{ background: #57ae57;margin-top: 10px; margin-left: 20%; height:30px;width:70px;text-align: center;font-family: "微软雅黑"; }
 .btn-submit:hover{background: #468e46;}
 .btn-success{border: none; background: #57ae57;margin-top: 10px; margin-left: 20%; height:30px;width:70px;text-align: center;font-family: "微软雅黑";color: #fff;}
@@ -40,9 +40,9 @@ h3{ text-align: center;}
 #sub-recover{float: left; margin-left: 20px;}
 #sub-login{float: right; margin-right: 20px;}
 /*学生界面*/
-#head{ width: 100%; padding: 0;margin: 0; height: 78px;background: #fff none repeat scroll 0% 0%;}
+#head{ width: 100%; padding: 0;margin: 0; height: 78px;background: #EEE none repeat scroll 0% 0%;}
 #logo{height: 78px;}
-#status1{text-indent: 40px; line-height:15px;position: absolute;width:auto;top: 0px;
+#status1{text-indent: 40px; line-height:21px;position: absolute;width:auto;top: 0px;
 	left: 220px; height: 40px;background:#1f262d;color: #999999;
 	border-left: 1px solid #000;font-size: 13px;}
 a.a_success:link,a.a_success:visited
@@ -79,7 +79,7 @@ a.a_success:hover,a.a_success:active
 #sider ul li a{display:block;height: 40px;width: 220px;}
 a.a_now:link,a.a_now:visited{background-color: #17a9e3;color: #fff;}
 #footer{ font-size: 12px; color:#999999; width: 100%; text-align: center; margin: 0;}
-.table_gen{ margin-top:30px;margin-left: 8%; margin-right: auto;
+.table_gen{ margin-top:10px;margin-left: 20px; margin-right: auto;
 	background: #fff; border-collapse:collapse; text-align: center;color: #1f262d;
 }
 .table_gen th{ font-size: 14px; font-weight: normal;border: solid 1px #cdcdcd;
@@ -128,13 +128,13 @@ a.list-group-item-a{position: relative; float: right; margin-right: 50px;}
 a.list-group-item-a:link,a.list-group-item-a:visited
 {
 	font-size: 14px;
-	color:#42C127;
-	text-decoration: none;
+	color:#1963aa;
+	text-decoration: underline;
 }
 a.list-group-item-a:hover,a.list-group-item-a:active
 {
 	font-size: 14px;
-	color: #2a5f94;
+	color: #050638;
 	text-decoration: underline;
 }
 .table_name{margin-right: 300px;margin-left: 8%;}
@@ -184,3 +184,16 @@ margin-top:30px;font-size: 13px; margin-left: 20%; }
 /*无填报记录显示信息*/
 p.empty-warning{margin-left: 8%; font-size: 20px;color: #E31717;}
 p.completed-warning{margin-left: 8%; font-size: 20px;color: #26B15B; }
+.remind{  
+    font-size: 13px;
+    color: #13508A;
+    background-color: #B5D4E2;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #95B2BF;
+}
+.remind1{font-size: 20 px;color: #2E363F;}
+.to_remind{
+	font-size: 13px;
+    margin-left: 20px;
+}
