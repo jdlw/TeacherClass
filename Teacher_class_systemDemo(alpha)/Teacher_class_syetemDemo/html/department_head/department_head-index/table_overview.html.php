@@ -137,23 +137,10 @@ $.editable.addInputType('datepicker', {
                echo $name;
                    ?> 
             </span>系负责人</p>
-             <p class='remind'>提示：普通教师报课截止日期过后，任课教师列和备注列可点击修改。</p>
-            </div>
-        </div>
-        <div id="main-content">
-          <div id="sider">
-            <ul>    
-              <li class="now_li"><a class="a_sider a_now" href="../department_head-index">报课情况</a></li>  
-              <li><a class="a_sider" href="../department_head_manager-teacher.php">管理教师</a></li>
-              <li><a class="a_sider" href="../department_head-information.php">个人信息</a></li>
-            </ul>
-          </div>
-          <div id="right-text">
-                <table class="table_gen" border="1">
-              <?php
-                 header("Content-type: text/html; charset:utf-8");                 
-                   $con = mysql_connect("localhost","root","");
-                   if (!$con)
+            <?php
+                  header("Content-type: text/html; charset:utf-8");                 
+                  $con = mysql_connect("localhost","root","");
+                  if (!$con)
                   {
                          die('Could not connect: ' . mysql_error());
                   }
@@ -176,6 +163,28 @@ $.editable.addInputType('datepicker', {
                       }
                       $sql = "SELECT * FROM $table_name";
                       $result = mysql_query($sql);
+              if($row1[0]==0)
+                echo " <p class='remind'>提示：教师报课截止日期未过，暂不可编辑。</p>";
+              else if ($row1[0]==1)
+                echo " <p class='remind'>提示：教师报课截止日期已过，任课教师列和备注列可单击进行编辑。</p>";
+              else
+                echo " <p class='remind'>提示：审核截止日期已过，不可编辑。</p>";
+
+            ?>
+            </div>
+        </div>
+        <div id="main-content">
+          <div id="sider">
+            <ul>    
+              <li class="now_li"><a class="a_sider a_now" href="../department_head-index">报课情况</a></li>  
+              <li><a class="a_sider" href="../department_head_manager-teacher.php">管理教师</a></li>
+              <li><a class="a_sider" href="../department_head-information.php">个人信息</a></li>
+            </ul>
+          </div>
+          <div id="right-text">
+                <table class="table_gen" border="1">
+              <?php
+                 
                       if($row1[0]==1){
                           while($row = mysql_fetch_array($result))
                           {
@@ -190,8 +199,14 @@ $.editable.addInputType('datepicker', {
                               echo"<td>".$row['practiceHour']."</td>";
                               echo"<td>".$row['onMachineHour']."</td>";
                               echo"<td>".$row['timePeriod']."</td>";
-                              echo"<td class='edit' id='".$row['insertTime']."#"."teacherName'>".$row['teacherName']."</td>";
-                              echo"<td class='edit' id='".$row['insertTime']."#"."remark'>".$row['remark']."</td>";
+                              if(preg_match("/[1-9]/",$row['grade']) && !strstr($row['grade'],"年")){
+                                echo"<td class='edit' id='".$row['insertTime']."#"."teacherName'>".$row['teacherName']."</td>";
+                                echo"<td class='edit' id='".$row['insertTime']."#"."remark'>".$row['remark']."</td>";
+                              } else {
+                                echo"<td>".$row['teacherName']."</td>";
+                                echo"<td>".$row['remark']."</td>";
+                              }
+                        
                               echo"</td></tr>";
                             
                           }

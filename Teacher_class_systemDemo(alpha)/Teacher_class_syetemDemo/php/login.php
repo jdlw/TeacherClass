@@ -16,7 +16,7 @@ if($idf=="teacher")//教师类型身份验证
 	if(mysql_num_rows($result)>0)
 	while($row = mysql_fetch_array($result))
 	{
-		if($row['workNumber']== $name&&$row['password']== $pwd)
+		if($row['workNumber'] === $name&&$row['password'] === $pwd)
 		{
 			jump_success("登录成功", '../html/teacher/teacher_table_overview/index.php');
 			
@@ -36,7 +36,7 @@ if($idf=="department_head")//系负责人类型身份验证
 	if(mysql_num_rows($result)>0)
 	while($row = mysql_fetch_array($result))
 	{
-		if($row['workNumber']== $name&&$row['password']== $pwd)
+		if($row['workNumber'] === $name&&$row['password'] === $pwd)
 		{
 			jump_success("登录成功", '../html/department_head/department_head-index');
 
@@ -56,7 +56,7 @@ if($idf=="teaching_office")//教学办类型身份验证
 	if(mysql_num_rows($result)>0)
 	while($row = mysql_fetch_array($result))
 	{
-		if($row['workNumber']== $name&&$row['password']== $pwd)
+		if($row['workNumber'] === $name&&$row['password'] === $pwd)
 		{
 			jump_success("登录成功", '../html/teaching_office/teaching_office-index.php');
 

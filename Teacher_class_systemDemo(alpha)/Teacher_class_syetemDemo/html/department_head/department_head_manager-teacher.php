@@ -215,10 +215,10 @@
                 <input placeholder="姓名:"  class="re-input" type="text"   name="name" /> <span class='state1'>请输入姓名(可不填)</span>
                 <input placeholder="密码:"  class="re-input" type="text"   name="password" required="required"/> <span class='state1'>请输入密码</span>
               
-                    </br>      
-                    <div class="judgement">
-                   <input type="radio" class="jud" name="jud" value="add"  checked="checked"  /> 添加该用户
-                    <input type="radio" class="jud" name="jud" value="cut" />删除该用户
+                  </br>      
+                  <div class="judgement">
+                  <input type="radio" class="jud" name="jud" value="add"  checked="checked"  /> 添加该用户
+                  <input type="radio" class="jud" name="jud" value="cut" />删除该用户
                   </div>
                 
 

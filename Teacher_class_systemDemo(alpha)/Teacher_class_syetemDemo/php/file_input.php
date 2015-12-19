@@ -60,7 +60,6 @@ header("Content-type: text/html; charset=utf-8");
 
        }else if( $teacherDeadline <= date('Ymd',time()) )
         {
-            echo $teacherDeadline;
           echo"
             <script>alert('报课截止日期要大于当前日期！');
             window.location.href='../html/teaching_office/teaching_office-index.php'</script>";
