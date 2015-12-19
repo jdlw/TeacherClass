@@ -129,7 +129,9 @@
        
                <button  type="initial" class="btn-initial ">教师账号导入</button>
           </form>
-          <table class="table_gen" border="1" id="st-info-m">
+
+          <div style="margin-top:50px;"><p>现有教师账号:</p></div>
+          <table class="table_gen_wid" border="1" id="st-info-m">
               <tbody>
                 <tr>
                 <th>职工号</th>

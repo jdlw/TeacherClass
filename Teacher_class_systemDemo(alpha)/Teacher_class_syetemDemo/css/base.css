@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*登录界面*/
 body{background-color: #2E363F;padding: 0px;margin: 0;}
 h3{ text-align: center;}
@@ -56,7 +57,7 @@ a.a_success:hover,a.a_success:active
 	text-decoration: underline;
 }
 #status2{position: absolute;top:39px;left: 220px; height: 38px; font-size: 12px;
-	text-indent:40px;line-height: 38px;border-bottom: 1px solid #e3ebed;}
+	text-indent:40px;line-height: 38px;border-bottom: 1px solid #ffffff;}
 #main-content{ min-height: 600px;}
 #sider{width: 220px;background-color:#2e363f;min-height: ;float: left;}
 
@@ -79,14 +80,21 @@ a.a_success:hover,a.a_success:active
 #sider ul li a{display:block;height: 40px;width: 220px;}
 a.a_now:link,a.a_now:visited{background-color: #17a9e3;color: #fff;}
 #footer{ font-size: 12px; color:#999999; width: 100%; text-align: center; margin: 0;}
-.table_gen{ margin-top:10px;margin-left: 20px; margin-right: auto;
+.table_gen{ margin-top:10px;margin-left: 40px; margin-right: auto;
 	background: #fff; border-collapse:collapse; text-align: center;color: #1f262d;
 }
 .table_gen th{ font-size: 14px; font-weight: normal;border: solid 1px #cdcdcd;
-	padding: 10px;min-width: 50px;}
-.table_gen td{ padding: 5px; border: solid 1px #cdcdcd; font-size: 13px;}
+	padding: 10px 5px;min-width: 50px;}
+.table_gen td{ padding:10px 5px; border: solid 1px #cdcdcd; font-size: 13px;}
+
+.table_gen_wid{ margin-top:10px;margin-left: 40px; margin-right: auto;
+	background: #fff; border-collapse:collapse; text-align: center;color: #1f262d;
+}
+.table_gen_wid th{ font-size: 14px; font-weight: normal;border: solid 1px #cdcdcd;
+	padding: 10px 5px;min-width:90px;}
+.table_gen_wid td{ padding:10px 5px; border: solid 1px #cdcdcd; font-size: 13px;}
 /*student-information界面*/
-#refer-to-change{ position: absolute; z-index: 30; top: 0px; right: 15px;}
+#refer-to-change{ position: absolute; z-index: 30; top: 0px; right: 21px;}
 #refer-to-change a{ text-indent: 0;line-height: 20px;display: block; font-size: 12px;padding: 5px;
  color:#fff;text-decoration: none;margin-top: 5px;}
 a.a_exit:link,a.a_exit:visited
@@ -137,7 +145,7 @@ a.list-group-item-a:hover,a.list-group-item-a:active
 	color: #050638;
 	text-decoration: underline;
 }
-.table_name{margin-right: 300px;margin-left: 8%;}
+.table_name{margin-right: 300px;margin-left: 140px;}
 .table_state{margin-left: 20px;font-size: 14px;color:#2a7d2a;}
 .table_login{margin-left: 80px;font-size: 14px;color:#2a7d2a;}
 .table-submit-a{margin-right: 10%; float: right; display: inline-block; font-size: 15px; padding:10px 8px ; 
@@ -156,7 +164,7 @@ min-height: 100px;}
 /*修改信息界面*/
 #re-text{padding-bottom: 30px; margin-top:20px;  border: 1px solid #cccccc;
 	background: #fff; width:60%; min-width: 400px; 
-	margin-left: 18%; position: relative; text-align: left;}
+	margin-left:40px; position: relative; text-align: left;}
 .re-input{font-family: "微软雅黑";  height: 30px; width: 40%;text-indent: 5px;
 margin-top:30px;font-size: 13px; margin-left: 20%; }
 .state1{ font-size: 12px;font-family: "微软雅黑";color:#4f5153;}
@@ -171,6 +179,7 @@ margin-top:30px;font-size: 13px; margin-left: 20%; }
 /*管理员界面*/
 #st-info-m{ margin-left: 0;}
 #st-info-m1{ margin-left: 20%;}
+#st-info-m1 th{width: 120px;}
 .judgement{width:100%;   font-size: 12px; position: relative; margin-left:22%;margin-top: 20px;}
 #serach-box input{ height:30px;width: 200px;}
 #serach-box  .re-btn{ padding: 5px;width: 100px;}
@@ -188,12 +197,12 @@ p.completed-warning{margin-left: 8%; font-size: 20px;color: #26B15B; }
     font-size: 13px;
     color: #13508A;
     background-color: #B5D4E2;
-    margin-left: 20px;
+    margin-left: 40px;
     margin-right: 20px;
     border: 1px solid #95B2BF;
 }
 .remind1{font-size: 20 px;color: #2E363F;}
 .to_remind{
 	font-size: 13px;
-    margin-left: 20px;
+  
 }

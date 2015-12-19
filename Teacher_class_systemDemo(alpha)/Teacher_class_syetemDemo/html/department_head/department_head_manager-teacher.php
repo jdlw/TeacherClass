@@ -39,42 +39,7 @@
                 var ok4=false;
                 var ok4=false;
  
-                // 验证姓名
-                // $('input[name="name"]').focus(function(){
-                //   $(this).next().text('用户名应该为1-20位之间').removeClass('state1').addClass('state2');
-                // }).blur(function(){
-                //     if($(this).val().length >= 1 && $(this).val().length <=20 && $(this).val()!=''){
-                //         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                //         ok1=true;
-                //     }else{
-                //         $(this).next().text('用户名应该为1-20位之间').removeClass('state1').addClass('state3');
-                //     }
-                     
-                // });
-                // // 年龄
-                // $('input[name="age"]').focus(function(){
-                //     $(this).next().text('年龄应该为1-200位之间').removeClass('state1').addClass('state2');
-                // }).blur(function(){
-                //     if($(this).val().length >= 1 && $(this).val().length <=200 && $(this).val()!=''){
-                //         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                //         ok2=true;
-                //     }else{
-                //         $(this).next().text('年龄应该为1-200位之间').removeClass('state1').addClass('state3');
-                //     }
-                     
-                // });
-                //  // 验证性别
-                // $('input[name="sex"]').focus(function(){
-                //     $(this).next().text('性别为男或女').removeClass('state1').addClass('state2');
-                // }).blur(function(){
-                //     if($(this).val()== "男" || $(this).val()=="女" && $(this).val()!=''){
-                //         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                //         ok3=true;
-                //     }else{
-                //         $(this).next().text('性别为男或女').removeClass('state1').addClass('state3');
-                //     }
-                     
-                // });
+                
 
                 //验证职工号
                 $('input[name="workNumber"]').focus(function(){
@@ -208,7 +173,7 @@
 
           <div id="right-text">
             
-            <div id="re-text">
+           
               <table class="table_gen" border="1" id="st-info-m1">
               <tbody>
                 <tr>
@@ -260,9 +225,8 @@
                   <input type="submit"  id="change_submit_l" class=" btn-recover btn-submit"  value="确认提交" />
                  
                </form>
-            </div>
-          <div>
-    </div>
+            
+          
  </div>
   <div id ="footer">
     <p>Designed by Code.R</p>
