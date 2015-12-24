@@ -79,6 +79,7 @@
           <div id="status1">
             <?php 
                  session_start();
+
                  $work_number = $_SESSION["temp"][0];
                  header("Content-type: text/html; charset:utf-8");                 
                    $con = mysql_connect("localhost","root","");
@@ -98,9 +99,14 @@
                       }
                   }
             ?>
-            <a class="a_exit" href="../../index.php">退出系统</a>
+            <a class="a_exit" href="../../jump.php">退出系统</a>
             <p>欢迎您，<span>
-              <?php  
+              <?php 
+                 if(!isset($name)||empty($name))
+                {  
+                  header("Location:../../index.php");        
+                  //jump_success("请重新登录", '../../index.php');
+                } 
                echo $name;
                    ?> 
             </span>老师</p>
