@@ -215,7 +215,7 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_teacher where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_teacher where workNumber='$workNumber'");
                       if(mysql_num_rows($result)>0)
                       {
                          $row = mysql_fetch_array($result);
@@ -260,14 +260,14 @@
                 <input placeholder="确认密码:"  class="re-input" type="password"   name="repassword" /> <span class='state1'>请确认密码</span>
                 </br> 
 
-                  <input type="success" id="change_submit" class="btn btn-success"  value="确认修改" />
+                  <input type="submit" id="change_submit" class="btn btn-success"  value="确认修改" />
                </form>
             </div>
           <div>
     </div>
  </div>
   <div id ="footer">
-    <p>2015@stc system by Mr.Linlin ma</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>

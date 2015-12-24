@@ -90,7 +90,7 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_teaching_office where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_teaching_office where workNumber='$workNumber'");
                       if(mysql_num_rows($result)>0)
                       {
                         $row = mysql_fetch_array($result);
@@ -129,7 +129,9 @@
        
                <button  type="initial" class="btn-initial ">教师账号导入</button>
           </form>
-          <table class="table_gen" border="1" id="st-info-m">
+
+          <div style="margin-top:50px;"><p>现有教师账号:</p></div>
+          <table class="table_gen_wid" border="1" id="st-info-m">
               <tbody>
                 <tr>
                 <th>职工号</th>
@@ -167,7 +169,7 @@
         
  </div>
   <div id ="footer">
-    <p>2015@stc system by Mr.Linlin ma</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>

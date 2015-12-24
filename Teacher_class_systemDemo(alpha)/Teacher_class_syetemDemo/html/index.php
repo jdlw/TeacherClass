@@ -1,8 +1,40 @@
 <?php
   require dirname(__DIR__).'/lib/functions.php';
 ?>
+<?php
+		$year =date("Y");
+		$date =date("Ymd");
+		//echo $time;
+		header("Content-type: text/html; charset:utf-8");                 
+                   $con = mysql_connect("localhost","root","");
+                   if (!$con)
+                  {
+                         die('Could not connect: ' . mysql_error());
+                  }
+                  else
+                  {
+                      mysql_select_db("teacher_class_system", $con);
+                      mysql_query("SET NAMES UTF8");
+                      $result = mysql_query("SELECT * FROM task_info where year >= '$year'");
+                      while($row = mysql_fetch_array($result))
+                      {
+                      	$table_name=$row["relativeTable"];
+                         if($row["teacherDeadline"]<$date&&$row["taskState"]=='0')
+                         {
+                         	$result1 = mysql_query("UPDATE `task_info` SET `taskState` = '1' where relativeTable='$table_name'");
+                         }
+                          if($row["departmentDeadline"]<$date&&$row["taskState"]=='1')
+                         {
+                         	$result1 = mysql_query("UPDATE task_info SET taskState = '2' where relativeTable='$table_name'");
+                         }
+                      }
+                      
+                      
+
+
+                  }
+		?>
 <!DOCTYPE html>
-<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
@@ -64,6 +96,7 @@
 			</form>
 		</div>		
 	<div id="footer">
+    <p>Designed by Code.R</p>
 	</div>
 </body>
 </html>

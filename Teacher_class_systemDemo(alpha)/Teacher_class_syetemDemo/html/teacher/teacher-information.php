@@ -90,11 +90,15 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_teacher where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_teacher where workNumber='$workNumber'");
                       if(mysql_num_rows($result)>0)
                       {
                         $row = mysql_fetch_array($result);
                         $GLOBALS['name']=$row['name'];
+                      }
+                      else
+                      {
+                        $GLOBALS['name']="获取姓名出错";
                       }
                   }
             ?>
@@ -122,7 +126,7 @@
           </div>
           <div id="right-text">
 
-            <table class="table_gen" border="1">
+            <table class="table_gen_wid" border="1">
               <tbody>
                 <tr>
                 <th>工号</th>
@@ -179,7 +183,7 @@
         </div>
  </div>
   <div id ="footer">
-    <p>2015@stc system by Mr.Linlin ma</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>

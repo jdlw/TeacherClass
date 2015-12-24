@@ -214,7 +214,7 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_teaching_office where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_teaching_office where workNumber='$workNumber'");
                       if(mysql_num_rows($result)>0)
                       {
                         $row = mysql_fetch_array($result);
@@ -264,7 +264,7 @@
     </div>
  </div>
   <div id ="footer">
-    <p>Dsigned By Code.R</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>

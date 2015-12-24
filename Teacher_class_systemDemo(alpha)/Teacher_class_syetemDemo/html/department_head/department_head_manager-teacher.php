@@ -39,42 +39,7 @@
                 var ok4=false;
                 var ok4=false;
  
-                // 验证姓名
-                // $('input[name="name"]').focus(function(){
-                //   $(this).next().text('用户名应该为1-20位之间').removeClass('state1').addClass('state2');
-                // }).blur(function(){
-                //     if($(this).val().length >= 1 && $(this).val().length <=20 && $(this).val()!=''){
-                //         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                //         ok1=true;
-                //     }else{
-                //         $(this).next().text('用户名应该为1-20位之间').removeClass('state1').addClass('state3');
-                //     }
-                     
-                // });
-                // // 年龄
-                // $('input[name="age"]').focus(function(){
-                //     $(this).next().text('年龄应该为1-200位之间').removeClass('state1').addClass('state2');
-                // }).blur(function(){
-                //     if($(this).val().length >= 1 && $(this).val().length <=200 && $(this).val()!=''){
-                //         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                //         ok2=true;
-                //     }else{
-                //         $(this).next().text('年龄应该为1-200位之间').removeClass('state1').addClass('state3');
-                //     }
-                     
-                // });
-                //  // 验证性别
-                // $('input[name="sex"]').focus(function(){
-                //     $(this).next().text('性别为男或女').removeClass('state1').addClass('state2');
-                // }).blur(function(){
-                //     if($(this).val()== "男" || $(this).val()=="女" && $(this).val()!=''){
-                //         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                //         ok3=true;
-                //     }else{
-                //         $(this).next().text('性别为男或女').removeClass('state1').addClass('state3');
-                //     }
-                     
-                // });
+                
 
                 //验证职工号
                 $('input[name="workNumber"]').focus(function(){
@@ -176,7 +141,7 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_department_head where workNumber='$workNumber'");
                       if(mysql_num_rows($result)>0)
                       {
                         $row = mysql_fetch_array($result);
@@ -208,7 +173,7 @@
 
           <div id="right-text">
             
-            <div id="re-text">
+           
               <table class="table_gen" border="1" id="st-info-m1">
               <tbody>
                 <tr>
@@ -250,22 +215,21 @@
                 <input placeholder="姓名:"  class="re-input" type="text"   name="name" /> <span class='state1'>请输入姓名(可不填)</span>
                 <input placeholder="密码:"  class="re-input" type="text"   name="password" required="required"/> <span class='state1'>请输入密码</span>
               
-                    </br>      
-                    <div class="judgement">
-                   <input type="radio" class="jud" name="jud" value="add"  checked="checked"  /> 添加该用户
-                    <input type="radio" class="jud" name="jud" value="cut" />删除该用户
+                  </br>      
+                  <div class="judgement">
+                  <input type="radio" class="jud" name="jud" value="add"  checked="checked"  /> 添加该用户
+                  <input type="radio" class="jud" name="jud" value="cut" />删除该用户
                   </div>
                 
 
                   <input type="submit"  id="change_submit_l" class=" btn-recover btn-submit"  value="确认提交" />
                  
                </form>
-            </div>
-          <div>
-    </div>
+            
+          
  </div>
   <div id ="footer">
-    <p>2015@stc system by Mr.Linlin ma</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>

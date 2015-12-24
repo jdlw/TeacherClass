@@ -82,6 +82,7 @@
                  $workNumber = $_SESSION["temp"][0];
                  header("Content-type: text/html; charset:utf-8");                 
                    $con = mysql_connect("localhost","root","");
+                   $currentyear= date('Y',time());
                    if (!$con)
                   {
                          die('Could not connect: ' . mysql_error());
@@ -90,7 +91,7 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_teaching_office where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_teaching_office where workNumber='$workNumber'");
                       if(mysql_num_rows($result)>0)
                       {
                         $row = mysql_fetch_array($result);
@@ -99,11 +100,12 @@
                   }
             ?>
             <a class="a_exit" href="../index.php">退出系统</a>
-            <p>欢迎您，<span>
+            <p class="to_remind">欢迎您，<span>
               <?php  
                echo $name;
                    ?> 
             </span>教学办</p>
+          <p class="remind">提示:“同一年份、同一学期、同专业“的报课表只能有一份，重复上传会覆盖原课表！若原报课表已有教师报课，将丢失数据！</p>
           </div>
           <div id="status2">
           
@@ -124,12 +126,19 @@
             <div class="term_select">
             <label>选择年份</label>
               <select name ="year">
-                <option value ="2014">2014</option>
-                <option value ="2015">2015</option>
-                <option value ="2016">2016</option>
-                <option value ="2017">2017</option>
+                <?php
+                echo'
+                <option value ="'.$currentyear.'">'.$currentyear.'</option>';
+                $currentyear++;
+                 echo'
+                <option value ="'.$currentyear.'">'.$currentyear.'</option>';
+                $currentyear++;
+                  echo'
+                <option value ="'.$currentyear.'">'.$currentyear.'</option>';
+                ?>
               </select>
-
+             
+                
               <label>选择学期</label>
                <select name ="semester">
                 <option value ="01">01</option>
@@ -176,7 +185,7 @@
         </div>
  </div>
   <div id ="footer">
-    <p>Dsigned By Code.R</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>

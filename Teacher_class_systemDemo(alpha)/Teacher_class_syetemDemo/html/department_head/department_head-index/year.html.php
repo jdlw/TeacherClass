@@ -90,7 +90,7 @@
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_department_head where workNumber='$workNumber'");
                       if(mysql_num_rows($result)>0)
                       {
                         $row = mysql_fetch_array($result);          
@@ -99,13 +99,14 @@
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
-            <p>欢迎您，<span>
+            <p class="to_remind">欢迎您，<span>
               <?php  
                echo $name;
                    ?> 
             </span>系负责人</p>
+          <div >
+            <p class="remind">提示：单击＜个人信息＞右上角的＜修改信息＞，更改自己负责的专业后，可在此查看对应专业报课信息。</p>
           </div>
-          <div id="status2">
           </div>
         </div>
         <div id="main-content">
@@ -166,7 +167,7 @@
         </div>
  </div>
   <div id ="footer">
-    <p>2015@stc system by Mr.Linlin ma</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>

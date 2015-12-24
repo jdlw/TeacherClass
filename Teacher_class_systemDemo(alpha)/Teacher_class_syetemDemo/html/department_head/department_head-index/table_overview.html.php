@@ -123,7 +123,7 @@ $.editable.addInputType('datepicker', {
                   {
                       mysql_select_db("teacher_class_system", $con);
                       mysql_query("SET NAMES UTF8");
-                      $result = mysql_query("SELECT * FROM user_department_head where workNumber=$workNumber");
+                      $result = mysql_query("SELECT * FROM user_department_head where workNumber='$workNumber'");
                       if(mysql_num_rows($result)>0)
                       {
                         $row = mysql_fetch_array($result);          
@@ -132,13 +132,46 @@ $.editable.addInputType('datepicker', {
                   }
             ?>
             <a class="a_exit" href="../../index.php">退出系统</a>
-            <p>欢迎您，<span>
-              <?php  
+            <p class="to_remind">欢迎您，<span>
+              <?php
                echo $name;
                    ?> 
-            </span>教学办</p>
-          </div>
-          
+            </span>系负责人</p>
+            <?php
+                  header("Content-type: text/html; charset:utf-8");                 
+                  $con = mysql_connect("localhost","root","");
+                  if (!$con)
+                  {
+                         die('Could not connect: ' . mysql_error());
+                  }
+                  else
+                  {
+                      $year = $_GET["year"];
+                      $table_name = $_GET["table_name"];
+                     // session_start();
+                      mysql_select_db("teacher_class_system", $con);
+                      mysql_query("SET NAMES UTF8");
+                      //$year=date("Y");
+
+                      $sql1="SELECT taskState FROM task_info WHERE relativeTable='$table_name'";
+                      $result1 = mysql_query($sql1);
+                       if(mysql_num_rows($result1)>0)
+                      {
+                        $row1 = mysql_fetch_array($result1);
+                        $table_name = 'cb_'.$table_name;
+                        $_SESSION["table_name"][0]= $table_name;
+                      }
+                      $sql = "SELECT * FROM $table_name";
+                      $result = mysql_query($sql);
+              if($row1[0]==0)
+                echo " <p class='remind'>提示：教师报课截止日期未过，暂不可编辑。</p>";
+              else if ($row1[0]==1)
+                echo " <p class='remind'>提示：教师报课截止日期已过，任课教师列和备注列可单击进行编辑。</p>";
+              else
+                echo " <p class='remind'>提示：审核截止日期已过，不可编辑。</p>";
+
+            ?>
+            </div>
         </div>
         <div id="main-content">
           <div id="sider">
@@ -150,35 +183,9 @@ $.editable.addInputType('datepicker', {
           </div>
           <div id="right-text">
                 <table class="table_gen" border="1">
-              <!--此处应显示所有年份列表-->
               <?php
-                 header("Content-type: text/html; charset:utf-8");                 
-                   $con = mysql_connect("localhost","root","");
-                   if (!$con)
-                  {
-                         die('Could not connect: ' . mysql_error());
-                  }
-                  else
-                  {
-                      $year = $_GET["year"];
-                      $table_name = $_GET["table_name"];
-                     // session_start();
-                      
-                      mysql_select_db("teacher_class_system", $con);
-                      mysql_query("SET NAMES UTF8");
-                      //$year=date("Y");
-                      $sql="SELECT taskState FROM task_info WHERE relativeTable='$table_name'";
-                      $result = mysql_query($sql);
-                      if(mysql_num_rows($result)>0)
-                      {
-                        $row = mysql_fetch_array($result);
-                        $table_name = 'cb_'.$table_name;
-                        $_SESSION["table_name"][0]= $table_name;
-                      }
-                      $sql = "SELECT * FROM $table_name";
-                      $result = mysql_query($sql);
-                      if(mysql_num_rows($result)>0)
-                      {
+                 
+                      if($row1[0]==1){
                           while($row = mysql_fetch_array($result))
                           {
 
@@ -192,13 +199,38 @@ $.editable.addInputType('datepicker', {
                               echo"<td>".$row['practiceHour']."</td>";
                               echo"<td>".$row['onMachineHour']."</td>";
                               echo"<td>".$row['timePeriod']."</td>";
-                              echo"<td class='edit' id='".$row['insertTime']."#"."teacherName'>".$row['teacherName']."</td>";
-                              echo"<td class='edit' id='".$row['insertTime']."#"."remark'>".$row['remark']."</td>";
-                              //echo"<td>".$row['remark']."</td>";
+                              if(preg_match("/[1-9]/",$row['grade']) && !strstr($row['grade'],"年")){
+                                echo"<td class='edit' id='".$row['insertTime']."#"."teacherName'>".$row['teacherName']."</td>";
+                                echo"<td class='edit' id='".$row['insertTime']."#"."remark'>".$row['remark']."</td>";
+                              } else {
+                                echo"<td>".$row['teacherName']."</td>";
+                                echo"<td>".$row['remark']."</td>";
+                              }
+                        
                               echo"</td></tr>";
                             
                           }
-                      }
+                        }
+                        else{
+                          while($row = mysql_fetch_array($result))
+                          {
+
+                              echo"<tr><td>".$row['grade'];     
+                              echo"<td>".$row['major']."</td>";
+                              echo"<td>".$row['people']."</td>";
+                              echo"<td>".$row['courseName']."</td>";
+                              echo"<td>".$row['courseType']."</td>";
+                              echo"<td>".$row['courseCredit']."</td>";
+                              echo"<td>".$row['courseHour']."</td>";
+                              echo"<td>".$row['practiceHour']."</td>";
+                              echo"<td>".$row['onMachineHour']."</td>";
+                              echo"<td>".$row['timePeriod']."</td>";
+                              echo"<td>".$row['teacherName']."</td>";
+                              echo"<td>".$row['remark']."</td>";
+                              echo"</td></tr>";
+                            
+                          }
+                        }
                       
                       
                       
@@ -216,7 +248,7 @@ $.editable.addInputType('datepicker', {
         </div>
  </div>
   <div id ="footer">
-    <p>2015@stc system by Mr.Linlin ma</p>
+    <p>Designed by Code.R</p>
   </div>
  </body>
 </html>
