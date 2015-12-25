@@ -34,7 +34,7 @@ require dirname(__DIR__).'/lib/functions.php';
                 mysql_query("UPDATE user_teacher SET telephone = '$telephone'     WHERE   workNumber = '$workNumber' AND '$telephone' != ''");
                 mysql_query("UPDATE user_teacher SET email = '$email'               WHERE   workNumber = '$workNumber' AND '$email' != ''");
                 mysql_query("UPDATE user_teacher SET password = '$password'       WHERE   workNumber = '$workNumber' AND '$password' != ''");
-                jump_success('修改信息成功！','../html/index.php');
+                jump_success('修改信息成功！','../index.php');
             }
           }
         //不合法的处理

@@ -34,7 +34,7 @@ else
     mysql_query("UPDATE user_teaching_office SET email = '$email'               WHERE   workNumber = '$workNumber' AND '$email' != ''");
     mysql_query("UPDATE user_teaching_office SET password = '$password'       WHERE   workNumber = '$workNumber' AND '$password' != ''");
 
-    jump_success('修改信息成功！', "../html/index.php");
+    jump_success('修改信息成功！', "../index.php");
   }
 }
         //不合法的处理

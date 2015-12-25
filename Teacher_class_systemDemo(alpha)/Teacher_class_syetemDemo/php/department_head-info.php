@@ -45,7 +45,7 @@ echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
                     //echo "专业被选中".$i.":".$major[$i];//显示哪些复选框被选中
                   }
                 }
-                jump_success("修改信息成功！", "../html/index.php");
+                jump_success("修改信息成功！", "../index.php");
             }
           }
         //不合法的处理
