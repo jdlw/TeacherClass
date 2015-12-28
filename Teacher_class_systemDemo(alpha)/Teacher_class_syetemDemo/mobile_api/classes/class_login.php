@@ -1,20 +1,36 @@
 <?php
-
+require_once 'trans.php';
 class Login{
-    // 测试工具PHPUnit要求一定要在这里给变量默认值，于是默认为空。
-    public function login($workNumber = "",$password = "",$tableName = ""){
-        $con = mysqli_connect("localhost", "root", "", "teacher_class_system");
+    public function login1($workNumber = "",$password = "",$tableName = ""){
+        $con = mysql_connect("localhost", "root", "");
+	mysql_select_db('teacher_class_system',$con);
         if (!$con) {
-            die('Could not connect: ' . mysqli_error());
+            die('Could not connect: ' . mysql_error());
         } else {
-            mysqli_query($con, "SET NAMES utf8");
-        
-            $result = mysqli_query($con, "SELECT * FROM $tableName where workNumber = $workNumber and password = $password");
-            if (!$result || mysqli_num_rows($result) == 0) {
-                return "false";
-            } else {
-                $result_arr = mysqli_fetch_assoc($result);
-                return json_encode($result_arr, JSON_UNESCAPED_UNICODE);
+            mysql_query("SET NAMES utf8");
+            $result = mysql_query( "SELECT * FROM $tableName where workNumber = '$workNumber' and password = '$password'");
+	        if (mysql_num_rows($result)>0) {
+                $result_arr = mysql_fetch_assoc($result);
+                
+		$year =date("Y");
+                $date =date("Ymd");             
+                $timeResult = mysql_query("SELECT * FROM task_info where year >= '$year'");
+                while($row = mysql_fetch_array($timeResult)) {
+                    $table_name=$row["relativeTable"];
+                    if($row["teacherDeadline"] < $date && $row["taskState"]=='0') {
+                        $result1 = mysql_query("UPDATE `task_info` SET `taskState` = '1' where relativeTable='$table_name'");
+                    }
+                    
+                    if($row["departmentDeadline"] < $date) {
+                        $result1 = mysql_query("UPDATE task_info SET taskState = '2' where relativeTable='$table_name'");
+                    }
+               }
+               
+		       mysql_close();
+               return json_encode_ex($result_arr,"");
+            } else { 
+		       mysql_close();
+               return "false";
             }
         }
     }
