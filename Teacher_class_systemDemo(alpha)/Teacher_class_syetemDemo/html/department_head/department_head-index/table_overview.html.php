@@ -131,9 +131,14 @@ $.editable.addInputType('datepicker', {
                       }
                   }
             ?>
-            <a class="a_exit" href="../../index.php">退出系统</a>
-            <p class="to_remind">欢迎您，<span>
+            <a class="a_exit" href="../../jump.php">退出系统</a>
+            <p>欢迎您，<span>
               <?php
+                if(!isset($name)||empty($name))
+                {  
+                  header("Location:../../index.php");        
+                  //jump_success("请重新登录", '../../index.php');
+                } 
                echo $name;
                    ?> 
             </span>系负责人</p>

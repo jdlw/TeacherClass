@@ -4,7 +4,7 @@
 
 
 <?php
-session_start();
-session_destroy();
-jump_success("退出成功", '../html/index.php');
+	session_start();
+	session_destroy();
+	jump_success("退出成功", '../index.php');
 ?>
