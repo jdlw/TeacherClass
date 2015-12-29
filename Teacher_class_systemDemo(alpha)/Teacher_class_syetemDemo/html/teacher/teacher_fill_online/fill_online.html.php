@@ -68,6 +68,7 @@
         }   
     </script> 
   <link href="../../../css/base.css" type="text/css" rel="stylesheet"/>
+  <script type="text/javascript">window.onload = function(){alert("提示：请各位老师慎重填报，每张表格仅能提交一次！提交之后，您无法再对此表格做任何修改！！！")}; </script>
  </head>
  <body>
 
