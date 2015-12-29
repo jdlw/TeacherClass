@@ -26,8 +26,10 @@ h3{ text-align: center;}
 .submit-box{text-align: center;
 			margin-top: 14px;
 				height: 40px;
-				border-top: solid 1px #7c7c7c  ;
+				border-top: solid 1px #7c7c7c;
 			}
+.btn-jz{padding-top: 6px; padding-left: 10px; padding-right: 10px; padding-bottom: 6px; font-size: 13.3333px; text-decoration: none; margin-bottom: 10px ;border: none; background: #57ae57;margin-top: 10px;height: 30px;width: auto;text-align: center;font-family: "微软雅黑";color: #fff;}
+.btn-jz:hover{background: #468e46;}
 .btn-recover{border: none; background: #57ae57;margin-top: 10px; margin-left: 20%; height:20px;width:70px;text-align: center;font-family: "微软雅黑";color: #fff;}
 .btn-recover:hover{background: #468e46;}
 .btn-submit{ background: #57ae57;margin-top: 10px; margin-left: 20%; height:30px;width:70px;text-align: center;font-family: "微软雅黑"; }
@@ -36,7 +38,7 @@ h3{ text-align: center;}
 .btn-success:hover{background: #468e46;}
 .btn-table{border: none; background: #57ae57;margin-top: 10px; margin-left: 8%; height:30px;width:70px;text-align: center;font-family: "微软雅黑";color: #fff;}
 .btn-table:hover{background: #468e46;}
-.btn-initial{border: none; background: #57ae57;margin-top: 10px;height: 30px;width: auto;text-align: center;font-family: "微软雅黑";color: #fff;}
+.btn-initial{margin-bottom: 30px ;border: none; background: #57ae57;margin-top: 10px;height: 30px;width: auto;text-align: center;font-family: "微软雅黑";color: #fff;}
 .btn-initial:hover{background: #468e46;}
 #sub-recover{float: left; margin-left: 20px;}
 #sub-login{float: right; margin-right: 20px;}
@@ -175,7 +177,8 @@ margin-top:30px;font-size: 13px; margin-left: 20%; }
 #change_submit_r{ position: relative;margin-left:20%; margin-right: auto; margin-top: 40px;}
 /*选课界面*/
 #btn-clse{ font-family: "微软雅黑"; font-size: 14px; padding: 10px;margin-top: 20px; position: relative; margin-left: 20%; margin-right: auto;}
-#status1 span{ color: #fff;}
+#status1 span.1{ color: #fff;}
+.2{color:13508A;}
 /*管理员界面*/
 #st-info-m{ margin-left: 0;}
 #st-info-m1{ margin-left: 20%;}
@@ -188,6 +191,7 @@ margin-top:30px;font-size: 13px; margin-left: 20%; }
 #right-text .class_state{ font-size: 16px; color: red;margin-left:0;}
 /*教学办上传页面*/
 .term_select select{ margin-right:200px;}
+.date_select select{ margin-right:214px;}
 .date_select input{ margin-right:50px;}
 .date_select{margin-bottom: 30px;}
 /*无填报记录显示信息*/
@@ -204,5 +208,44 @@ p.completed-warning{margin-left: 8%; font-size: 20px;color: #26B15B; }
 .remind1{font-size: 20 px;color: #2E363F;}
 .to_remind{
 	font-size: 13px;
-  
+}
+.remind2{
+	font-size: 13px;
+    color: #FF2929;
+    background-color: #B5D4E2;
+    margin-left: 40px;
+    margin-right: 20px;
+    border: 1px solid #95B2BF;
+}
+.remind3{
+	font-size: 16px;
+    color: #FF2929;
+    background-color: #B5D4E2;
+    border: 1px solid #95B2BF;
+    border-right: none;
+    border-left: none;
+}
+.remind4{  
+    font-size: 16px;
+    color: #13508A;
+    background-color: #B5D4E2;
+    border: 1px solid #95B2BF;
+    border-right: none;
+    border-left: none;
+}
+.remind5{  
+    font-size: 16px;
+    color: #13508A;
+    margin-right: 20px;
+    background-color: #B5D4E2;
+    border: 1px solid #95B2BF;
+    border-left: none;
+}
+.remind6{  
+    font-size: 16px;
+    color: #13508A;
+    margin-left: 40px;
+    background-color: #B5D4E2;
+    border: 1px solid #95B2BF;
+    border-right: none;
 }
