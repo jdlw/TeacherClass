@@ -37,8 +37,10 @@
                 var ok2=false;
                 var ok3=false;
                 var ok4=false;
-                var ok5=false;
- 
+                var ok5=false;  
+                $zhengze = '/^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/A';  
+                
+
                 // 验证姓名
                 $('input[name="name"]').focus(function(){
                   $(this).next().text('请填写您的真实姓名').removeClass('state1').addClass('state2');
@@ -94,24 +96,24 @@
                 $('input[name="telephone"]').focus(function(){
                     $(this).next().text('请填写11位手机号码').removeClass('state1').addClass('state2');
                 }).blur(function(){
-                    if($(this).val().length >= 1 && $(this).val().length <=200 && $(this).val()!=''){
+                    if($(this).val().length == 11 && $(this).val().length <=200 && $(this).val()!=''){
                         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
                         ok2=true;
                     }else{
-                        $(this).next().text('请填写电话号码');
+                        $(this).next().text('请正确填写手机号码').removeClass('state1').addClass('state3');
                     }
 
                 });    
 
                 // 验证电话邮箱
                 $('input[name="email"]').focus(function(){
-                    $(this).next().text('邮箱大致格式：Judy12@qq.com').removeClass('state1').addClass('state2');
+                    $(this).next().text('邮箱大致格式：xxxxxx@xx.xxx').removeClass('state1').addClass('state2');
                 }).blur(function(){
-                    if($(this).val().length >= 1 && $(this).val().length <=200 && $(this).val()!=''){
+                    if($(this).val().length > 6 && $(this).val().length <=200 && $(this).val()!=''){
                         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
                         ok2=true;
                     }else{
-                        $(this).next().text('请填写邮箱地址');
+                        $(this).next().text('请正确填写邮箱地址').removeClass('state1').addClass('state3');
                     }
 
                 });    
@@ -204,7 +206,9 @@
            <div id="status1">
             <?php 
                  session_start();
+                 $_SESSION["mark"]=1;
                  $workNumber = $_SESSION["temp"][0];
+                 $mark = 1;
                  header("Content-type: text/html; charset:utf-8");                 
                    $con = mysql_connect("localhost","root","");
                    if (!$con)

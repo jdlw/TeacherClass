@@ -110,7 +110,7 @@
                echo $name;
                    ?> 
             </span>教学办</p>
-          <p class="remind">提示:“同一年份、同一学期、同专业“的报课表只能有一份，重复上传会覆盖原课表！若原报课表已有教师报课，将丢失数据！</p>
+          <span class='remind6'>提示一:“同一年份、同一学期、同专业“的报课表只能有一份，</span><span class='remind3'>重复上传会覆盖原课表！</span><span class='remind4'>若原报课表</span><span class='remind3'>已有教师报课，将丢失数据</span><span class='remind5'>！</span>
           </div>
           <div id="status2">
           
@@ -126,6 +126,7 @@
             </ul>
           </div>
           <div id="right-text">
+          <span class='remind6'>提示二:若上传时，使用</span><span class='remind3'>Excel2003及以上版本或WPS</span><span class='remind4'>的表格，请把文件</span><span class='remind3'>另存为.xls后缀的文件</span><span class='remind5'>再上传！</span>
           <div class="table_input_area">
            <form  method="post"  action="../../php/file_input.php"   enctype="multipart/form-data">
             <div class="term_select">

@@ -3,6 +3,7 @@ require dirname(__DIR__).'/lib/functions.php';
   session_start();
    header("Content-type: text/html; charset=utf-8"); 
   $workNumber = $_SESSION["temp"][0];
+  $mark = $_SESSION["mark"];
   $name = $_POST["name"];
   $sex =$_POST["sex"];
   // $birthday=$_POST["birthday"];
@@ -25,6 +26,35 @@ require dirname(__DIR__).'/lib/functions.php';
     {
         if($password!=$repassword)
           $equal_pwd=0;
+        else if(strlen($telephone) > 0 && strlen($telephone) != 11){
+          
+          if($mark==0){
+          echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
+            echo"
+              <script>alert('提示：信息修改失败！请填写11位手机号码！');
+              window.location.href='../html/teacher/teacher_fill_information.php' </script>";
+          }
+          else{
+          echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
+             echo"
+                <script>alert('提示：信息修改失败！请填写11位手机号码！');
+                window.location.href='../html/teacher/teacher-information-change.php' </script>";
+          }
+        }
+        else if(strlen($email) > 0 && !strstr($email, "@")){
+          if($mark==0){
+          echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
+            echo"
+              <script>alert('提示：信息修改失败！邮箱地址格式错误！');
+              window.location.href='../html/teacher/teacher_fill_information.php' </script>";
+          }
+          else{
+          echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
+            echo"
+              <script>alert('提示：信息修改失败！邮箱地址格式错误！');
+              window.location.href='../html/teacher/teacher-information-change.php' </script>";
+          }
+        }
         else{
                 $con = get_db();
                 mysql_query("UPDATE user_teacher SET name = '$name'               WHERE   workNumber = '$workNumber' AND '$name' != ''");

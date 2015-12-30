@@ -198,7 +198,7 @@ margin-top:30px;font-size: 13px; margin-left: 20%; }
 p.empty-warning{margin-left: 8%; font-size: 20px;color: #E31717;}
 p.completed-warning{margin-left: 8%; font-size: 20px;color: #26B15B; }
 .remind{  
-    font-size: 13px;
+    font-size: 16px;
     color: #13508A;
     background-color: #B5D4E2;
     margin-left: 40px;
@@ -207,10 +207,10 @@ p.completed-warning{margin-left: 8%; font-size: 20px;color: #26B15B; }
 }
 .remind1{font-size: 20 px;color: #2E363F;}
 .to_remind{
-	font-size: 13px;
+	font-size: 16px;
 }
 .remind2{
-	font-size: 13px;
+	font-size: 16px;
     color: #FF2929;
     background-color: #B5D4E2;
     margin-left: 40px;

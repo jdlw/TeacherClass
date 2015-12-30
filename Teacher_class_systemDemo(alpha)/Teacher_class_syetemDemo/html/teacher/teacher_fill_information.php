@@ -94,24 +94,24 @@
                 $('input[name="telephone"]').focus(function(){
                     $(this).next().text('请填写11位手机号码').removeClass('state1').addClass('state2');
                 }).blur(function(){
-                    if($(this).val().length >= 1 && $(this).val().length <=200 && $(this).val()!=''){
+                    if($(this).val().length == 11 && $(this).val().length <=200 && $(this).val()!=''){
                         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
                         ok2=true;
                     }else{
-                        $(this).next().text('请填写电话号码');
+                        $(this).next().text('请正确填写手机号码').removeClass('state1').addClass('state3');
                     }
 
                 });    
 
                 // 验证电话邮箱
                 $('input[name="email"]').focus(function(){
-                    $(this).next().text('邮箱大致格式：Judy12@qq.com').removeClass('state1').addClass('state2');
+                    $(this).next().text('邮箱大致格式：xxxxxx@xx.xxx').removeClass('state1').addClass('state2');
                 }).blur(function(){
-                    if($(this).val().length >= 1 && $(this).val().length <=200 && $(this).val()!=''){
+                    if( $(this).val().length > 6 && $(this).val().length <=200 && $(this).val()!=''){
                         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
                         ok2=true;
                     }else{
-                        $(this).next().text('请填写邮箱地址');
+                        $(this).next().text('请正确填写邮箱地址').removeClass('state1').addClass('state3');
                     }
 
                 });    
@@ -204,7 +204,9 @@
            <div id="status1">
             <?php 
                  session_start();
+                 $_SESSION["mark"]=0;
                  $workNumber = $_SESSION["temp"][0];
+                 $mark = 0;
                  header("Content-type: text/html; charset:utf-8");                 
                    $con = mysql_connect("localhost","root","");
                    if (!$con)
@@ -234,7 +236,7 @@
                echo $name;
                    ?> 
             </span>老师</p>
-            <span class='remind6'>提示：请按照下方提示，填写个人信息；正确填写</span><span class='remind3'>手机号</span><span class='remind4'>和</span><span class='remind3'>邮箱</span><span class='remind5'>后，方可进行报课。</span>
+            <span class='remind6'>提示：请按照下方提示，填写个人信息；</span><span class='remind3'>手机号</span><span class='remind4'>和</span><span class='remind3'>邮箱</span><span class='remind5'>都照要求填写，方可进行报课。</span>
           </div>
           <div id="status2">
             <div id="refer-to-change">
