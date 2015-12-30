@@ -12,6 +12,7 @@ require dirname(__DIR__).'/lib/functions.php';
   $email = $_POST["email"];
   $password = $_POST["password"];
   $repassword = $_POST["repassword"];
+  $zhengze = '/^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/A';
   //判断表格是否未填写
   $empty = 0;
   
@@ -41,7 +42,9 @@ require dirname(__DIR__).'/lib/functions.php';
                 window.location.href='../html/teacher/teacher-information-change.php' </script>";
           }
         }
-        else if(strlen($email) > 0 && !strstr($email, "@")){
+
+        
+        else if(strlen($email) > 0 && preg_match($zhengze,$email) == false ){
           if($mark==0){
           echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
             echo"
