@@ -37,9 +37,9 @@
                 var ok2=false;
                 var ok3=false;
                 var ok4=false;
-                var ok5=false;  
-                $zhengze = '/^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/A';  
-                
+                var ok5=false;
+                var test_mobilphone = /^0?1[3|4|5|8][0-9]\d{8}$/;
+                var test_email = /^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/;   
 
                 // 验证姓名
                 $('input[name="name"]').focus(function(){
@@ -94,22 +94,22 @@
 
                 // 验证电话
                 $('input[name="telephone"]').focus(function(){
-                    $(this).next().text('请填写11位手机号码').removeClass('state1').addClass('state2');
+                  $(this).next().text('请填写11位手机号码').removeClass('state1').addClass('state2');
+                    
                 }).blur(function(){
-                    if($(this).val().length == 11 && $(this).val().length <=200 && $(this).val()!=''){
-                        $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                        ok2=true;
-                    }else{
-                        $(this).next().text('请正确填写手机号码').removeClass('state1').addClass('state3');
-                    }
+                  if (test_mobilphone.test($(this).val())) {
+                     $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+                  }else{
+                     $(this).next().text('请正确填写手机号码').removeClass('state1').addClass('state3');
+                  }
 
                 });    
 
                 // 验证电话邮箱
                 $('input[name="email"]').focus(function(){
                     $(this).next().text('邮箱大致格式：xxxxxx@xx.xxx').removeClass('state1').addClass('state2');
-                }).blur(function(){
-                    if($(this).val().length > 6 && $(this).val().length <=200 && $(this).val()!=''){
+                }).blur(function(){ 
+                    if(test_email.test($(this).val())){
                         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
                         ok2=true;
                     }else{
@@ -258,7 +258,7 @@
           <div id="right-text">
             
             <div id="re-text">
-                <form action="../../php/teacher-info.php" method="post">
+                <form name="information" action="../../php/teacher-info.php" method="post">
                 <input placeholder="姓名:"  class="re-input" type="text"   name="name" /> <span class='state1'>请输入姓名</span>
                 <input placeholder="性别:"  class="re-input" type="text"   name="sex" /> <span class='state1'>请输入性别</span> 
                 <!-- <input placeholder="生日:"  class="re-input" type="text"   name="birthday" /> <span class='state1'>请输入生日</span> -->
