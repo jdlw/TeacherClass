@@ -18,8 +18,10 @@ if($idf=="teacher")//教师类型身份验证
 	{
 		if($row['workNumber'] === $name&&$row['password'] === $pwd)
 		{
-			jump_success("登录成功", '../html/teacher/teacher_table_overview/index.php');
-			
+			if($row['telephone'] != ''&&$row['email'] != '' )
+				jump_success("登录成功", '../html/teacher/teacher_table_overview/index.php');
+			else
+				jump_success("登录成功", '../html/teacher/teacher_fill_information.php');
 		}
 
 	}

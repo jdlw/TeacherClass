@@ -1,8 +1,6 @@
 <?php
   require dirname(__DIR__).'/lib/functions.php';
 ?>
-
-
 <?php
 	session_start();
 	session_destroy();

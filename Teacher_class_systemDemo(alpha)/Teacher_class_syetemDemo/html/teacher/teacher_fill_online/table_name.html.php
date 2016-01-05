@@ -110,6 +110,7 @@
                echo $name;
                    ?> 
             </span>老师</p>
+            <p class='remind'>提示：已填写过的表格，可在“查看表格”页面查看</p>
           </div>
           <div id="status2">
           </div>

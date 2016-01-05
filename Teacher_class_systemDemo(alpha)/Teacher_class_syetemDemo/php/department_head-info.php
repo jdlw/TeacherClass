@@ -5,7 +5,7 @@ echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
   $workNumber = $_SESSION["temp"][0];
   $name = $_POST["name"];
   $sex =$_POST["sex"];
-  $birthday=$_POST["birthday"];
+  // $birthday=$_POST["birthday"];
   $department=$_POST["department"];
   $telephone = $_POST["telephone"];
   $email = $_POST["email"];
@@ -19,7 +19,7 @@ echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
   $major=$_POST["major"];
   // var_dump($major);
   // echo count($major)."</br>";
-  if(count($major)==1&&$name==''&&$sex==''&&$password==''&&$repassword==''&&$birthday==''&&$department==''&&$telephone==''&&$email=='')
+  if(count($major)==1&&$name==''&&$sex==''&&$password==''&&$repassword==''&&$department==''&&$telephone==''&&$email=='')
     {
       $empty=1;
       //echo $empty."</br>";
@@ -32,7 +32,7 @@ echo"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>";
                 $con = get_db();
                 mysql_query("UPDATE user_department_head SET name = '$name'               WHERE   workNumber = '$workNumber' AND '$name' != ''");
                 mysql_query("UPDATE user_department_head SET sex = '$sex'                 WHERE   workNumber = '$workNumber' AND '$sex' != ''");
-                mysql_query("UPDATE user_department_head SET birthday = '$birthday'       WHERE   workNumber = '$workNumber' AND '$birthday' != ''");
+                // mysql_query("UPDATE user_department_head SET birthday = '$birthday'       WHERE   workNumber = '$workNumber' AND '$birthday' != ''");
                 mysql_query("UPDATE user_department_head SET department = '$department'   WHERE   workNumber = '$workNumber' AND '$department' != ''");
                 mysql_query("UPDATE user_department_head SET telephone = '$telephone'     WHERE   workNumber = '$workNumber' AND '$telephone' != ''");
                 mysql_query("UPDATE user_department_head SET email = '$email'               WHERE   workNumber = '$workNumber' AND '$email' != ''");

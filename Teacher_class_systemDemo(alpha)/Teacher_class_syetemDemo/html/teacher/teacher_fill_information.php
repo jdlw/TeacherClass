@@ -39,8 +39,8 @@
                 var ok4=false;
                 var ok5=false;
                 var test_mobilphone = /^0?1[3|4|5|8][0-9]\d{8}$/;
-                var test_email = /^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/;   
-
+                var test_email = /^[a-zA-Z0-9][a-zA-Z0-9._-]*\@[a-zA-Z0-9]+\.[a-zA-Z0-9\.]+$/;  
+ 
                 // 验证姓名
                 $('input[name="name"]').focus(function(){
                   $(this).next().text('请填写您的真实姓名').removeClass('state1').addClass('state2');
@@ -108,7 +108,7 @@
                 // 验证电话邮箱
                 $('input[name="email"]').focus(function(){
                     $(this).next().text('邮箱大致格式：xxxxxx@xx.xxx').removeClass('state1').addClass('state2');
-                }).blur(function(){ 
+                }).blur(function(){
                     if(test_email.test($(this).val())){
                         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
                         ok2=true;
@@ -206,9 +206,9 @@
            <div id="status1">
             <?php 
                  session_start();
-                 $_SESSION["mark"]=1;
+                 $_SESSION["mark"]=0;
                  $workNumber = $_SESSION["temp"][0];
-                 $mark = 1;
+                 $mark = 0;
                  header("Content-type: text/html; charset:utf-8");                 
                    $con = mysql_connect("localhost","root","");
                    if (!$con)
@@ -238,6 +238,7 @@
                echo $name;
                    ?> 
             </span>老师</p>
+            <span class='remind6'>提示：请按照下方提示，填写个人信息；</span><span class='remind3'>手机号</span><span class='remind4'>和</span><span class='remind3'>邮箱</span><span class='remind5'>都照要求填写，方可进行报课。</span>
           </div>
           <div id="status2">
             <div id="refer-to-change">
@@ -249,16 +250,14 @@
       <div id="main-content">
           <div id="sider">
             <ul>
-              <li><a class="a_sider" href="teacher_table_overview">查看表格</a></li>  
-              <li><a class="a_sider" href="teacher_fill_online">填写表格</a></li>
-              <li class="now_li"><a class="a_sider a_now" href="teacher-information.php">个人信息</a></li>
+              <li class="now_li"><a class="a_sider a_now" href="teacher_fill_information.php">个人信息</a></li>
             </ul>
           </div>
 
           <div id="right-text">
             
             <div id="re-text">
-                <form name="information" action="../../php/teacher-info.php" method="post">
+                <form action="../../php/teacher-info.php" method="post">
                 <input placeholder="姓名:"  class="re-input" type="text"   name="name" /> <span class='state1'>请输入姓名</span>
                 <input placeholder="性别:"  class="re-input" type="text"   name="sex" /> <span class='state1'>请输入性别</span> 
                 <!-- <input placeholder="生日:"  class="re-input" type="text"   name="birthday" /> <span class='state1'>请输入生日</span> -->
