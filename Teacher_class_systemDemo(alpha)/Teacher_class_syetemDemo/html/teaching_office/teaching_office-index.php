@@ -110,7 +110,7 @@
                echo $name;
                    ?> 
             </span>教学办</p>
-          <p class="remind">提示:“同一年份、同一学期、同专业“的报课表只能有一份，重复上传会覆盖原课表！若原报课表已有教师报课，将丢失数据！</p>
+          <span class='remind6'>提示一:“同一年份、同一学期、同专业“的报课表只能有一份，</span><span class='remind3'>重复上传会覆盖原课表！</span><span class='remind4'>若原报课表</span><span class='remind3'>已有教师报课，将丢失数据</span><span class='remind5'>！</span>
           </div>
           <div id="status2">
           
@@ -119,17 +119,18 @@
         <div id="main-content">
           <div id="sider">
             <ul>
-               <li class="now_li"><a class="a_sider a_now" href="teaching_office-index.php"  >上传表格</a></li>
+              <li class="now_li"><a class="a_sider a_now" href="teaching_office-index.php"  >上传表格</a></li>
               <li><a class="a_sider" href="teaching_office_table_overview">报课情况</a></li>  
               <li><a class="a_sider" href="teaching_office_manager-teacher.php">管理教师</a></li>
               <li><a class="a_sider" href="teaching_office-information.php">个人信息</a></li>
             </ul>
           </div>
           <div id="right-text">
+          <span class='remind6'>提示二:若上传时，使用</span><span class='remind3'>Excel2003及以上版本或WPS</span><span class='remind4'>的表格，请把文件</span><span class='remind3'>另存为.xls后缀的文件</span><span class='remind5'>再上传！</span>
           <div class="table_input_area">
            <form  method="post"  action="../../php/file_input.php"   enctype="multipart/form-data">
             <div class="term_select">
-            <label>选择年份</label>
+            <label>选择学年</label>
               <select name ="year">
                 <?php
                 echo'
@@ -142,8 +143,11 @@
                 <option value ="'.$currentyear.'">'.$currentyear.'</option>';
                 ?>
               </select>
-             
-                
+              <label>报课截止日期<label>
+              <input type="text" name="teacherDeadline"  placeholder="格式:20140101" >
+            </div>
+            </br>
+            <div class="date_select">
               <label>选择学期</label>
                <select name ="semester">
                 <option value ="01">01</option>
@@ -152,14 +156,8 @@
                 <option value ="04">04</option>
                 <option value ="05">05</option>
               </select>
-
-               </div>
-            </br>
-            <div class="date_select">
-            <label>报课截止日期<label>
-              <input type="text" name="teacherDeadline"  placeholder="格式:20140101" >
-            <label>审核截止日期<label>
-              <input type="text" name="departmentDeadline"  placeholder="格式:20140101" >  
+              <label>审核截止日期</label>
+                <input type="text" name="departmentDeadline"  placeholder="格式:20140101" >  
              </div>  
 
                <input type="file" name="testFile" >
@@ -175,11 +173,11 @@
                 </br> </br> 
                  <input type="radio" name="file_input" value="tc_net_pro" />网络工程专业
                 </br> </br>
-                <input type="radio" name="file_input" value="tc_math_nor" />数学类
+                <input type="radio" name="file_input" value="tc_math_nor" />数学专业
                 </br> </br> 
                  <input type="radio" name="file_input" value="tc_math_ope" />数学类（实验班）
                 </br> </br>
-                 <input type="radio" name="file_input" value="tc_inf_sec" />信息安全专业（实验班）
+                 <input type="radio" name="file_input" value="tc_inf_sec" />信息安全专业
                 </br> </br>
        
                <button  type="initial" class="btn-initial ">确认提交</button>

@@ -134,7 +134,7 @@
                   <th>密码</th>
                   <th>姓名</th>
                   <th>性别</th>
-                  <th>生日</th>
+                  <!-- <th>生日</th> -->
                   <th>所属系别</th>
                   <th>电话</th>
                   <th>邮箱</th>
@@ -160,7 +160,7 @@
                       echo"<td>".$row['password']."</td>";
                       echo"<td>".$row['name']."</td>";
                       echo"<td>".$row['sex']."</td>";
-                      echo"<td>".$row['birthday']."</td>";
+                      // echo"<td>".$row['birthday']."</td>";
                       echo"<td>".$row['department']."</td>";
                       echo"<td>".$row['telephone']."</td>";
                       echo"<td>".$row['email']."</td>";

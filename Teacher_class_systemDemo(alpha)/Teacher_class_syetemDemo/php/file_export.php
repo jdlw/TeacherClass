@@ -18,7 +18,7 @@
        $table_name_ch="计算机（实验班）.xls";
         break; 
       case (strstr($table_name,'cb_tc_math_nor')):
-       $table_name_ch="数学类.xls";
+       $table_name_ch="数学专业.xls";
         break; 
       case (strstr($table_name,'cb_tc_math_ope')):
        $table_name_ch="数学类（实验班）.xls";

@@ -92,7 +92,7 @@
 
                 // 验证电话
                 $('input[name="telephone"]').focus(function(){
-                    $(this).next().text('请填写电话号码').removeClass('state1').addClass('state2');
+                    $(this).next().text('请填写11位手机号码').removeClass('state1').addClass('state2');
                 }).blur(function(){
                     if($(this).val().length >= 1 && $(this).val().length <=200 && $(this).val()!=''){
                         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
@@ -105,7 +105,7 @@
 
                 // 验证电话邮箱
                 $('input[name="email"]').focus(function(){
-                    $(this).next().text('请填写邮箱地址').removeClass('state1').addClass('state2');
+                    $(this).next().text('邮箱大致格式：Judy12@qq.com').removeClass('state1').addClass('state2');
                 }).blur(function(){
                     if($(this).val().length >= 1 && $(this).val().length <=200 && $(this).val()!=''){
                         $(this).next().text('输入成功').removeClass('state1').addClass('state4');
@@ -259,7 +259,7 @@
                 <input type="hidden" name="major[]" value="0">
                 <input placeholder="姓名:"  class="re-input" type="text"   name="name" /> <span class='state1'>请输入姓名</span>
                 <input placeholder="性别:"  class="re-input" type="text"   name="sex" /> <span class='state1'>请输入性别</span> 
-                <input placeholder="生日:"  class="re-input" type="text"   name="birthday" /> <span class='state1'>请输入生日</span>
+                <!-- <input placeholder="生日:"  class="re-input" type="text"   name="birthday" /> <span class='state1'>请输入生日</span> -->
                 <input placeholder="系别:"  class="re-input" type="text"   name="department" /> <span class='state1'>请输入系别</span>
                 <input placeholder="电话:"  class="re-input" type="text"   name="telephone" /> <span class='state1'>请输入电话</span>  
                 <input placeholder="邮箱:"  class="re-input" type="text"   name="email" /> <span class='state1'>请输入邮箱</span>
@@ -278,7 +278,7 @@
                 </br> </br> 
                  <input type="checkbox" name="major[]" value="tc_net_pro" />网络工程专业
                 </br> </br>
-                <input type="checkbox" name="major[]" value="tc_math_nor" />数学类
+                <input type="checkbox" name="major[]" value="tc_math_nor" />数学专业
                 </br> </br> 
                  <input type="checkbox" name="major[]" value="tc_math_ope" />数学类（实验班）
                 </br> </br>
